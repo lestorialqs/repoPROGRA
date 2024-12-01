@@ -1,32 +1,59 @@
-#ifndef TRIE_H
-#define TRIE_H
-
-#include <string>
-#include <unordered_map>
-#include <vector>
+#include "trie.h"
+#include <algorithm>
 
 using namespace std;
 
-struct TrieNode{
-    unordered_map<char, TrieNode*> children;
-    bool wordend;
-    vector<string> movies;
+Trie::Trie() {
+    root=new TrieNode();
+}
 
-    TrieNode() : wordend(false) {}
-};
+Trie::~Trie() {
+    deleteTrie(root);
+}
 
-class Trie {
-private:
-    TrieNode* root;
+void Trie::deleteTrie(TrieNode* node) {
+    for (auto& pair : node->children) {
+        deleteTrie(pair.second);
+    }
+    delete node;
+}
 
-    void deleteTrie(TrieNode* node);
+void Trie::insert(const string& palabra_clave, const string& movie) {
+    TrieNode* actual=root;
 
-public:
-    Trie();
-    ~Trie();
+    // Convertir la palabra clave a minúsculas
+    string lowerpalabra_clave=palabra_clave;
+    transform(lowerpalabra_clave.begin(), lowerpalabra_clave.end(), lowerpalabra_clave.begin(), ::tolower);
 
-    void insert(const string& keyword, const string& movie);
-    vector<string> searchInTitles(const string& keyword) const;
-};
+    for (char ch:lowerpalabra_clave) {
+        if (!actual->children.count(ch)) {
+            actual->children[ch] = new TrieNode();
+        }
+        actual = actual->children[ch];
+    }
+    actual->wordend = true;
 
-#endif // TRIE_H
+    // Evitar duplicados en la lista de películas
+    if (find(actual->movies.begin(), actual->movies.end(), movie) == actual->movies.end()) {
+        actual->movies.push_back(movie);
+    }
+}
+
+vector<string> Trie::searchInTitles(const string& palabra_clave) const {
+    TrieNode* actual = root;
+
+    // Convertir la palabra clave a minúsculas
+    string lowerpalabra_clave = palabra_clave;
+    transform(lowerpalabra_clave.begin(), lowerpalabra_clave.end(), lowerpalabra_clave.begin(), ::tolower);
+
+    // Si la palabra clave no existe, retornar vacío
+    for (char ch : lowerpalabra_clave) {
+        if (!actual->children.count(ch)) {
+            return {};
+        }
+        actual = actual->children[ch];
+    }
+
+    // Si el nodo es el final de una palabra, retornar sus películas
+    return actual->movies;
+}

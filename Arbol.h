@@ -26,9 +26,13 @@ class Arbol{
 private:
     Nodo* raiz;
     Nodo* insertarNodoAux(Nodo* nodo, Pelicula* p);
+    void buscadorPalabraAux(Nodo* nodo, string palabra);
 public:
     void insertarNodo(Pelicula* p){
         raiz = insertarNodoAux(raiz, p);
+    }
+    void buscadorPalabra(string palabra){
+        buscadorPalabraAux(raiz, palabra);
     }
 };
 
@@ -42,5 +46,9 @@ Nodo* Arbol::insertarNodoAux(Nodo *nodo, Pelicula *p) {
     return nodo;
 }
 
+void Arbol::buscadorPalabraAux(Nodo *nodo, std::string palabra) {
+    if(nodo == nullptr) return;
+
+}
 
 #endif //REPOPROGRA_ARBOL_H

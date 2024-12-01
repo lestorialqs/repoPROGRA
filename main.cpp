@@ -1,44 +1,63 @@
 #include <iostream>
-#include <stack>
-#include <queue>
-#include <vector>
-#include <unordered_map>
-#include <unordered_set>
-#include "Arbol.h"
 #include <fstream>
 #include <sstream>
+#include "trie.h"
+
 using namespace std;
 
-void cargarPeliculasAlArbol(Arbol &arbol, const string &filename) {
-    ifstream archivo(filename);
-    string linea;
 
-    while (getline(archivo, linea)) {
-        stringstream ss(linea);
-        string id, titulo, sinopsis, tag, split, source_sinopsis;
-
-        // Leemos los atributos de la película separados por '|'
-        getline(ss, id, '|');
-        getline(ss, titulo, '|');
-        getline(ss, sinopsis, '|');
-        getline(ss, tag, '|');
-        getline(ss, split, '|');
-        getline(ss, source_sinopsis, '|');
-
-        // Creamos un objeto Pelicula con los atributos
-        Pelicula pelicula(id, titulo, sinopsis, tag, split, source_sinopsis);
-
-        // Insertamos la película en el árbol
-        arbol.insertarNodo(pelicula);
+void insertWords(Trie& trie,const string& text,const string& movie) {
+    stringstream ss(text);
+    string word;
+    while(ss>>word){
+        trie.insert(word,movie);
     }
 }
 
-int main(){
-    Arbol arbol;
-    cargarPeliculasAlArbol(arbol, "limpio2.csv");
+void loadMovies(Trie& trie) {
+    ifstream file("../limpio2.csv");
+    if (!file.is_open()) {
+        cerr<<"Error: No se pudo abrir el archivo de la base de datos.\n";
+        return;
+    }
 
-    arbol.buscadorPalabra("barco");
-    cout << "Buscando 'barco':" << endl;
-    arbol.buscadorPalabra("barco");
+    string line;
+    while (getline(file, line)) {
+        stringstream ss(line);
+        string imdb_id, title, plot_synopsis, tags, split, synopsis_source;
 
+        getline(ss, imdb_id, '|');
+        getline(ss, title, '|');
+        getline(ss, plot_synopsis, '|');
+        getline(ss, tags, '|');
+        getline(ss, split, '|');
+        getline(ss, synopsis_source, '|');
+
+        insertWords(trie, title, title);
+    }
+
+    file.close();
+    cout<<"Base de datos cargada con exito.\n";
+}
+
+int main() {
+    Trie trie;
+
+    //Cargar películas desde la base de datos
+    loadMovies(trie);
+
+    string keyword;
+    cout<<"Ingrese una palabra clave para buscar peliculas: ";
+    getline(cin, keyword);
+
+    vector<string> results=trie.searchInTitles(keyword);
+    if (!results.empty()) {
+        cout<<"Peliculas encontradas:\n";
+        for(const string& movie : results){
+            cout << "- " << movie << "\n";
+        }
+    }else {
+        cout<<"No se encontraron peliculas para la palabra clave ingresada.\n";
+    }
+    return 0;
 }

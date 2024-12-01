@@ -10,11 +10,11 @@
 using namespace std;
 
 struct Nodo{
-    Pelicula pelicula;
+    Pelicula* pelicula;
     Nodo* left;
     Nodo* right;
 
-    Nodo(Pelicula p){
+    Nodo(Pelicula* p){
         pelicula = p;
         left = nullptr;
         right = nullptr;
@@ -24,39 +24,33 @@ struct Nodo{
 
 
 
-class Arbol{
+#include <mutex>
+
+class Arbol {
 private:
     Nodo* raiz;
-    Nodo* insertarNodoAux(Nodo* nodo, Pelicula p);
+    std::mutex mtx; // Mutex para sincronización
+
+    Nodo* insertarNodoAux(Nodo* nodo, Pelicula* p);
     void buscadorPalabraAux(Nodo* nodo, string palabra);
+    void liberarMemoria(Nodo* nodo);
+
 public:
-    void insertarNodo(Pelicula p){
+    Arbol() : raiz(nullptr) {}
+    ~Arbol() { liberarMemoria(raiz); }
+
+    void insertarNodo(Pelicula* p) {
+        std::lock_guard<std::mutex> lock(mtx); // Bloqueo del mutex
         raiz = insertarNodoAux(raiz, p);
     }
-    void buscadorPalabra(string palabra){
+
+    void buscadorPalabra(string palabra) {
+        std::lock_guard<std::mutex> lock(mtx); // Bloqueo del mutex
         buscadorPalabraAux(raiz, palabra);
     }
 };
 
-Nodo* Arbol::insertarNodoAux(Nodo *nodo, Pelicula p) {
-    if(nodo == nullptr) return new Nodo(p);
 
-    if(nodo->pelicula.getId() < p.getId())
-        nodo->right = insertarNodoAux(nodo->right, p);
-    else
-        nodo->left = insertarNodoAux(nodo->left, p);
-    return nodo;
-}
 
-void Arbol::buscadorPalabraAux(Nodo *nodo, std::string palabra) {
-    if(nodo == nullptr) return;
-    if(nodo->pelicula.getTitulo().find(palabra) != string::npos ||
-        nodo->pelicula.getSinopsis().find(palabra) != string::npos){
-        cout<<"Titulo: "<<nodo->pelicula.getTitulo()<<" ";
-        cout<<"Sinopsis: "<<nodo->pelicula.getSinopsis()<<endl;
-    }
-    buscadorPalabraAux(nodo->left, palabra);
-    buscadorPalabraAux(nodo->right, palabra);
-}
 
 #endif //REPOPROGRA_ARBOL_H

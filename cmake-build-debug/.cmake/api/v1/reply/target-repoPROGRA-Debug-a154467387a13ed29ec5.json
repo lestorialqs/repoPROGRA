@@ -97,8 +97,7 @@
 			"sourceIndexes" : 
 			[
 				1,
-				2,
-				3
+				2
 			]
 		}
 	],
@@ -112,17 +111,12 @@
 		},
 		{
 			"backtrace" : 1,
-			"path" : "Pelicula.h",
-			"sourceGroupIndex" : 1
-		},
-		{
-			"backtrace" : 1,
 			"path" : "Arbol.h",
 			"sourceGroupIndex" : 1
 		},
 		{
 			"backtrace" : 1,
-			"path" : "limpador_de_csv.h",
+			"path" : "Pelicula.h",
 			"sourceGroupIndex" : 1
 		}
 	],

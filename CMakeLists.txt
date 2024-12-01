@@ -7,5 +7,6 @@ add_executable(repoPROGRA
         main.cpp
         Arbol.h
         Pelicula.h
-
+        trie.cpp
+        trie.h
 )

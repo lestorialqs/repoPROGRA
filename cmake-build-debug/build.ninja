@@ -55,6 +55,12 @@ build CMakeFiles/repoPROGRA.dir/main.cpp.obj: CXX_COMPILER__repoPROGRA_unscanned
   OBJECT_DIR = CMakeFiles\repoPROGRA.dir
   OBJECT_FILE_DIR = CMakeFiles\repoPROGRA.dir
 
+build CMakeFiles/repoPROGRA.dir/trie.cpp.obj: CXX_COMPILER__repoPROGRA_unscanned_Debug C$:/Users/hanksvi/CLionProjects/Progra_3/repoPROGRA/trie.cpp || cmake_object_order_depends_target_repoPROGRA
+  DEP_FILE = CMakeFiles\repoPROGRA.dir\trie.cpp.obj.d
+  FLAGS = -g -std=gnu++14 -fdiagnostics-color=always
+  OBJECT_DIR = CMakeFiles\repoPROGRA.dir
+  OBJECT_FILE_DIR = CMakeFiles\repoPROGRA.dir
+
 
 # =============================================================================
 # Link build statements for EXECUTABLE target repoPROGRA
@@ -63,7 +69,7 @@ build CMakeFiles/repoPROGRA.dir/main.cpp.obj: CXX_COMPILER__repoPROGRA_unscanned
 #############################################
 # Link the executable repoPROGRA.exe
 
-build repoPROGRA.exe: CXX_EXECUTABLE_LINKER__repoPROGRA_Debug CMakeFiles/repoPROGRA.dir/main.cpp.obj
+build repoPROGRA.exe: CXX_EXECUTABLE_LINKER__repoPROGRA_Debug CMakeFiles/repoPROGRA.dir/main.cpp.obj CMakeFiles/repoPROGRA.dir/trie.cpp.obj
   FLAGS = -g
   LINK_LIBRARIES = -lkernel32 -luser32 -lgdi32 -lwinspool -lshell32 -lole32 -loleaut32 -luuid -lcomdlg32 -ladvapi32
   OBJECT_DIR = CMakeFiles\repoPROGRA.dir

@@ -54,6 +54,22 @@ vector<string> Trie::searchInTitles(const string& palabra_clave) const {
         actual = actual->children[ch];
     }
 
-    // Si el nodo es el final de una palabra, retornar sus películas
-    return actual->movies;
+    // Recoger todas las peliculas asociadas a este nodo y sus descendientes
+    vector<string> result;
+    collectMovies(actual, result);
+    return result;
 }
+
+void Trie::collectMovies(TrieNode* node, vector<std::string> &result) const{
+    if(node->wordend){
+        // Si llegamos al final de una palabra, agregamos las peliculas
+        result.insert(result.end(), node->movies.begin(), node->movies.end());
+    }
+
+    // Recursivamente buscar en los hijos
+    for(auto& p: node->children){
+        collectMovies(p.second, result);
+    }
+
+}
+

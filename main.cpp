@@ -1,63 +1,61 @@
 #include <iostream>
 #include <fstream>
 #include <sstream>
-#include "trie.h"
+#include <string>
+#include <algorithm>
 
 using namespace std;
 
-
-void insertWords(Trie& trie,const string& text,const string& movie) {
-    stringstream ss(text);
-    string word;
-    while(ss>>word){
-        trie.insert(word,movie);
-    }
+string obtenerTitulo(const string &linea) {
+    stringstream ss(linea);
+    string id, titulo;
+    getline(ss, id, '|');
+    getline(ss, titulo, '|');
+    return titulo;
 }
 
-void loadMovies(Trie& trie) {
-    ifstream file("../limpio2.csv");
+void buscarPeliculasPorFrase(const string &fraseClave, const string &archivo) {
+    ifstream file(archivo);
     if (!file.is_open()) {
-        cerr<<"Error: No se pudo abrir el archivo de la base de datos.\n";
+        cerr << "Error al abrir el archivo." << endl;
         return;
     }
 
-    string line;
-    while (getline(file, line)) {
-        stringstream ss(line);
-        string imdb_id, title, plot_synopsis, tags, split, synopsis_source;
+    string linea;
+    bool seEncontraron = false;
 
-        getline(ss, imdb_id, '|');
-        getline(ss, title, '|');
-        getline(ss, plot_synopsis, '|');
-        getline(ss, tags, '|');
-        getline(ss, split, '|');
-        getline(ss, synopsis_source, '|');
+    while (getline(file, linea)) {
+        string lineaMin = linea;
+        string fraseMin = fraseClave;
+        transform(lineaMin.begin(), lineaMin.end(), lineaMin.begin(), ::tolower);
+        transform(fraseMin.begin(), fraseMin.end(), fraseMin.begin(), ::tolower);
 
-        insertWords(trie, title, title);
+        if (lineaMin.find(fraseMin) != string::npos) {
+            string titulo = obtenerTitulo(linea);
+            cout << "Titulo encontrado: " << titulo << endl;
+            seEncontraron = true;
+        }
+    }
+
+    if (!seEncontraron) {
+        cout << "No se encontraron peliculas con la frase proporcionada." << endl;
     }
 
     file.close();
-    cout<<"Base de datos cargada con exito.\n";
 }
 
+// Función principal
 int main() {
-    Trie trie;
+    string archivo = "limpio2.csv";
 
-    //Cargar películas desde la base de datos
-    loadMovies(trie);
+    cout << "Ingrese una frase exacta para buscar peliculas: ";
+    string fraseClave;
+    getline(cin, fraseClave);
 
-    string keyword;
-    cout<<"Ingrese una palabra clave para buscar peliculas: ";
-    getline(cin, keyword);
+    cout << "Buscando peliculas con la frase: \"" << fraseClave << "\"" << endl;
 
-    vector<string> results=trie.searchInTitles(keyword);
-    if (!results.empty()) {
-        cout<<"Peliculas encontradas:\n";
-        for(const string& movie : results){
-            cout << "- " << movie << "\n";
-        }
-    }else {
-        cout<<"No se encontraron peliculas para la palabra clave ingresada.\n";
-    }
+    buscarPeliculasPorFrase(fraseClave, archivo);
+
     return 0;
 }
+

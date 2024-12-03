@@ -1,10 +1,11 @@
 #include "trie.h"
 #include <algorithm>
+#include <sstream>
 
 using namespace std;
 
 Trie::Trie() {
-    root=new TrieNode();
+    root = new TrieNode();
 }
 
 Trie::~Trie() {
@@ -18,58 +19,84 @@ void Trie::deleteTrie(TrieNode* node) {
     delete node;
 }
 
-void Trie::insert(const string& palabra_clave, const string& movie) {
-    TrieNode* actual=root;
+void Trie::insert(const string& texto, const string& movie) {
+    TrieNode* actual = root;
 
-    // Convertir la palabra clave a minúsculas
-    string lowerpalabra_clave=palabra_clave;
-    transform(lowerpalabra_clave.begin(), lowerpalabra_clave.end(), lowerpalabra_clave.begin(), ::tolower);
+    string lowerTexto = texto;
+    transform(lowerTexto.begin(), lowerTexto.end(), lowerTexto.begin(), ::tolower);
 
-    for (char ch:lowerpalabra_clave) {
-        if (!actual->children.count(ch)) {
-            actual->children[ch] = new TrieNode();
+    stringstream ss(lowerTexto);
+    string word;
+
+    while (ss >> word) {
+        actual = root;
+        for (char ch : word) {
+            if (!actual->children.count(ch)) {
+                actual->children[ch] = new TrieNode();
+            }
+            actual = actual->children[ch];
         }
-        actual = actual->children[ch];
-    }
-    actual->wordend = true;
+        actual->wordend = true;
 
-    // Evitar duplicados en la lista de películas
-    if (find(actual->movies.begin(), actual->movies.end(), movie) == actual->movies.end()) {
-        actual->movies.push_back(movie);
+        if (find(actual->movies.begin(), actual->movies.end(), movie) == actual->movies.end()) {
+            actual->movies.push_back(movie);
+        }
     }
 }
 
-vector<string> Trie::searchInTitles(const string& palabra_clave) const {
+vector<string> Trie::searchInTitles(const string& keyword) const {
     TrieNode* actual = root;
 
-    // Convertir la palabra clave a minúsculas
-    string lowerpalabra_clave = palabra_clave;
-    transform(lowerpalabra_clave.begin(), lowerpalabra_clave.end(), lowerpalabra_clave.begin(), ::tolower);
+    string lowerKeyword = keyword;
+    transform(lowerKeyword.begin(), lowerKeyword.end(), lowerKeyword.begin(), ::tolower);
 
-    // Si la palabra clave no existe, retornar vacío
-    for (char ch : lowerpalabra_clave) {
+    for (char ch : lowerKeyword) {
         if (!actual->children.count(ch)) {
             return {};
         }
         actual = actual->children[ch];
     }
 
-    // Recoger todas las peliculas asociadas a este nodo y sus descendientes
     vector<string> result;
     collectMovies(actual, result);
     return result;
 }
 
-void Trie::collectMovies(TrieNode* node, vector<std::string> &result) const{
-    if(node->wordend){
-        // Si llegamos al final de una palabra, agregamos las peliculas
+void Trie::collectMovies(TrieNode* node, vector<string>& result) const {
+    if (node->wordend) {
         result.insert(result.end(), node->movies.begin(), node->movies.end());
     }
 
-    // Recursivamente buscar en los hijos
-    for(auto& p: node->children){
+    for (auto& p : node->children) {
         collectMovies(p.second, result);
     }
 
 }
 
+vector<string> Trie::searchPhrase(const string& phrase) const {
+    string lowerPhrase = phrase;
+    transform(lowerPhrase.begin(), lowerPhrase.end(), lowerPhrase.begin(), ::tolower);
+
+    stringstream ss(lowerPhrase);
+    string word;
+    vector<string> commonResults;
+
+    if (ss >> word) {
+        commonResults = searchInTitles(word);
+    }
+
+    while (ss >> word && !commonResults.empty()) {
+        vector<string> currentResults = searchInTitles(word);
+        vector<string> intersection;
+
+        set_intersection(
+                commonResults.begin(), commonResults.end(),
+                currentResults.begin(), currentResults.end(),
+                back_inserter(intersection)
+        );
+
+        commonResults = intersection;
+    }
+
+    return commonResults;
+}

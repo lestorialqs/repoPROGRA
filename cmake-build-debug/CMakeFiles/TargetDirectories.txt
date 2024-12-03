@@ -1,3 +1,4 @@
-D:/ANEL/UNIVERSIDAD/3er CICLO/PROGRAMACION 3/PROYECTO_PROGRA/repoPROGRA/cmake-build-debug/CMakeFiles/repoPROGRA.dir
-D:/ANEL/UNIVERSIDAD/3er CICLO/PROGRAMACION 3/PROYECTO_PROGRA/repoPROGRA/cmake-build-debug/CMakeFiles/edit_cache.dir
-D:/ANEL/UNIVERSIDAD/3er CICLO/PROGRAMACION 3/PROYECTO_PROGRA/repoPROGRA/cmake-build-debug/CMakeFiles/rebuild_cache.dir
+C:/Users/Asus/Documents/Programacion_Proyects/repoPROGRA/cmake-build-debug/CMakeFiles/repoPROGRA.dir
+C:/Users/Asus/Documents/Programacion_Proyects/repoPROGRA/cmake-build-debug/CMakeFiles/interfaz.dir
+C:/Users/Asus/Documents/Programacion_Proyects/repoPROGRA/cmake-build-debug/CMakeFiles/edit_cache.dir
+C:/Users/Asus/Documents/Programacion_Proyects/repoPROGRA/cmake-build-debug/CMakeFiles/rebuild_cache.dir

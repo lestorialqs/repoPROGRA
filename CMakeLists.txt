@@ -11,3 +11,4 @@ add_executable(repoPROGRA
         trie.cpp
         main.cpp
 )
+add_executable(interfaz menu.cpp)

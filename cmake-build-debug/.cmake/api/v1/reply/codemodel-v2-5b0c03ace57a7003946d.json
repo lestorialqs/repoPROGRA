@@ -15,7 +15,8 @@
 					"source" : ".",
 					"targetIndexes" : 
 					[
-						0
+						0,
+						1
 					]
 				}
 			],
@@ -30,12 +31,20 @@
 					"name" : "repoPROGRA",
 					"targetIndexes" : 
 					[
-						0
+						0,
+						1
 					]
 				}
 			],
 			"targets" : 
 			[
+				{
+					"directoryIndex" : 0,
+					"id" : "interfaz::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-interfaz-Debug-d7f7c97ca899b7d47879.json",
+					"name" : "interfaz",
+					"projectIndex" : 0
+				},
 				{
 					"directoryIndex" : 0,
 					"id" : "repoPROGRA::@6890427a1f51a3e7e1df",
@@ -49,12 +58,12 @@
 	"kind" : "codemodel",
 	"paths" : 
 	{
-		"build" : "D:/ANEL/UNIVERSIDAD/3er CICLO/PROGRAMACION 3/PROYECTO_PROGRA/repoPROGRA/cmake-build-debug",
-		"source" : "D:/ANEL/UNIVERSIDAD/3er CICLO/PROGRAMACION 3/PROYECTO_PROGRA/repoPROGRA"
+		"build" : "C:/Users/Asus/Documents/Programacion_Proyects/repoPROGRA/cmake-build-debug",
+		"source" : "C:/Users/Asus/Documents/Programacion_Proyects/repoPROGRA"
 	},
 	"version" : 
 	{
 		"major" : 2,
-		"minor" : 6
+		"minor" : 7
 	}
 }

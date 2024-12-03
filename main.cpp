@@ -1,83 +1,112 @@
 #include <iostream>
 #include <fstream>
 #include <sstream>
-#include <string>
-#include <vector>
-#include <algorithm>
+#include "trie.h"
 
 using namespace std;
 
-vector<string> dividirEnPalabras(const string &frase) {
-    stringstream ss(frase);
-    string palabra;
-    vector<string> palabras;
-    while (ss >> palabra) {
-        palabras.push_back(palabra);
+void insertWords(Trie& trie, const string& text, const string& movie) {
+    stringstream ss(text);
+    string word;
+    while (ss >> word) {
+        trie.insert(word, movie);
     }
-    return palabras;
+
+    // También insertar el título completo como frase exacta
+    trie.insert(text, movie);
 }
 
-string obtenerTitulo(const string &linea) {
-    stringstream ss(linea);
-    string id, titulo;
-    getline(ss, id, '|');       // Leer el ID
-    getline(ss, titulo, '|');   // Leer el título
-    return titulo;
-}
-
-void buscarPeliculasPorPalabras(const vector<string> &palabrasClave, const string &archivo) {
-    ifstream file(archivo);
+void loadMovies(Trie& trie) {
+    ifstream file("../limpio2.csv");
     if (!file.is_open()) {
-        cerr << "Error al abrir el archivo." << endl;
+        cerr << "Error: No se pudo abrir el archivo de la base de datos.\n";
         return;
     }
 
-    string linea;
-    bool seEncontraron = false;
+    string line;
+    while (getline(file, line)) {
+        stringstream ss(line);
+        string imdb_id, title, plot_synopsis, tags, split, synopsis_source;
 
-    while (getline(file, linea)) {
-        string lineaMin = linea;
-        transform(lineaMin.begin(), lineaMin.end(), lineaMin.begin(), ::tolower);
+        getline(ss, imdb_id, '|');
+        getline(ss, title, '|');
+        getline(ss, plot_synopsis, '|');
+        getline(ss, tags, '|');
+        getline(ss, split, '|');
+        getline(ss, synopsis_source, '|');
 
-        bool coincidencia = false;
-        for (const string &palabra : palabrasClave) {
-            string palabraMin = palabra;
-            transform(palabraMin.begin(), palabraMin.end(), palabraMin.begin(), ::tolower);
-            if (lineaMin.find(palabraMin) != string::npos) {
-                coincidencia = true;
-                break;
-            }
-        }
-
-        if (coincidencia) {
-            string titulo = obtenerTitulo(linea);
-            cout << "Titulo encontrado: " << titulo << endl;
-            seEncontraron = true;
-        }
-    }
-
-    if (!seEncontraron) {
-        cout << "No se encontraron peliculas con las palabras clave proporcionadas." << endl;
+        insertWords(trie, title, title);
     }
 
     file.close();
+    cout << "Base de datos cargada con éxito.\n";
 }
 
 int main() {
-    string archivo = "limpio2.csv";
+    Trie trie;
 
-    cout << "Ingrese palabras clave para buscar peliculas: ";
-    string fraseClave;
-    getline(cin, fraseClave);
+    // Cargar las películas desde el archivo
+    loadMovies(trie);
 
-    vector<string> palabrasClave = dividirEnPalabras(fraseClave);
-    cout << "Buscando peliculas con las palabras: ";
-    for (const string &palabra : palabrasClave) {
-        cout << "\"" << palabra << "\" ";
-    }
-    cout << endl;
+    int choice;
+    do {
+        cout << "\n--- Menú ---\n";
+        cout << "1. Buscar por prefijo\n";
+        cout << "2. Buscar por palabra clave\n";
+        cout << "3. Buscar por frase exacta\n";
+        cout << "4. Salir\n";
+        cout << "Elija una opción: ";
+        cin >> choice;
+        cin.ignore();
 
-    buscarPeliculasPorPalabras(palabrasClave, archivo);
+        if (choice == 1) {
+            string prefix;
+            cout << "Ingrese un prefijo para buscar películas: ";
+            getline(cin, prefix);
 
+            vector<string> results = trie.searchByPrefix(prefix);
+            if (!results.empty()) {
+                cout << "Películas encontradas:\n";
+                for (const string& movie : results) {
+                    cout << "- " << movie << "\n";
+                }
+            } else {
+                cout << "No se encontraron películas para el prefijo ingresado.\n";
+            }
+        } else if (choice == 2) {
+            string keyword;
+            cout << "Ingrese una palabra clave para buscar películas: ";
+            getline(cin, keyword);
+
+            vector<string> results = trie.searchByWord(keyword);
+            if (!results.empty()) {
+                cout << "Películas encontradas:\n";
+                for (const string& movie : results) {
+                    cout << "- " << movie << "\n";
+                }
+            } else {
+                cout << "No se encontraron películas para la palabra clave ingresada.\n";
+            }
+        } else if (choice == 3) {
+            string phrase;
+            cout << "Ingrese una frase exacta para buscar películas: ";
+            getline(cin, phrase);
+
+            vector<string> results = trie.searchByPhrase(phrase);
+            if (!results.empty()) {
+                cout << "Películas encontradas:\n";
+                for (const string& movie : results) {
+                    cout << "- " << movie << "\n";
+                }
+            } else {
+                cout << "No se encontraron películas para la frase exacta ingresada.\n";
+            }
+        } else if (choice != 4) {
+            cout << "Opción no válida. Intente de nuevo.\n";
+        }
+    } while (choice != 4);
+
+    cout << "¡Gracias por usar el sistema de búsqueda de películas!\n";
     return 0;
 }
+

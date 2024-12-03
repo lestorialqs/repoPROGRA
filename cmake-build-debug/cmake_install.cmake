@@ -1,8 +1,8 @@
-# Install script for directory: D:/ANEL/UNIVERSIDAD/3er CICLO/PROGRAMACION 3/PROYECTO_PROGRA/repoPROGRA
+# Install script for directory: C:/Users/hanksvi/CLionProjects/Progra_3/repoPROGRA
 
 # Set the install prefix
 if(NOT DEFINED CMAKE_INSTALL_PREFIX)
-  set(CMAKE_INSTALL_PREFIX "C:/Program Files (x86)/repoPROGRA")
+  set(CMAKE_INSTALL_PREFIX "C:/Program Files (x86)/proyecto2")
 endif()
 string(REGEX REPLACE "/$" "" CMAKE_INSTALL_PREFIX "${CMAKE_INSTALL_PREFIX}")
 
@@ -45,5 +45,5 @@ endif()
 
 string(REPLACE ";" "\n" CMAKE_INSTALL_MANIFEST_CONTENT
        "${CMAKE_INSTALL_MANIFEST_FILES}")
-file(WRITE "D:/ANEL/UNIVERSIDAD/3er CICLO/PROGRAMACION 3/PROYECTO_PROGRA/repoPROGRA/cmake-build-debug/${CMAKE_INSTALL_MANIFEST}"
+file(WRITE "C:/Users/hanksvi/CLionProjects/Progra_3/repoPROGRA/cmake-build-debug/${CMAKE_INSTALL_MANIFEST}"
      "${CMAKE_INSTALL_MANIFEST_CONTENT}")

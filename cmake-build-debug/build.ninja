@@ -11,7 +11,7 @@
 # =============================================================================
 
 # =============================================================================
-# Project: repoPROGRA
+# Project: proyecto2
 # Configurations: Debug
 # =============================================================================
 
@@ -41,43 +41,43 @@ include CMakeFiles/rules.ninja
 
 cmake_ninja_workdir = C$:/Users/hanksvi/CLionProjects/Progra_3/repoPROGRA/cmake-build-debug/
 # =============================================================================
-# Object build statements for EXECUTABLE target repoPROGRA
+# Object build statements for EXECUTABLE target proyecto2
 
 
 #############################################
-# Order-only phony target for repoPROGRA
+# Order-only phony target for proyecto2
 
-build cmake_object_order_depends_target_repoPROGRA: phony || CMakeFiles/repoPROGRA.dir
+build cmake_object_order_depends_target_proyecto2: phony || CMakeFiles/proyecto2.dir
 
-build CMakeFiles/repoPROGRA.dir/main.cpp.obj: CXX_COMPILER__repoPROGRA_unscanned_Debug C$:/Users/hanksvi/CLionProjects/Progra_3/repoPROGRA/main.cpp || cmake_object_order_depends_target_repoPROGRA
-  DEP_FILE = CMakeFiles\repoPROGRA.dir\main.cpp.obj.d
-  FLAGS = -g -std=gnu++14 -fdiagnostics-color=always
-  OBJECT_DIR = CMakeFiles\repoPROGRA.dir
-  OBJECT_FILE_DIR = CMakeFiles\repoPROGRA.dir
+build CMakeFiles/proyecto2.dir/main.cpp.obj: CXX_COMPILER__proyecto2_unscanned_Debug C$:/Users/hanksvi/CLionProjects/Progra_3/repoPROGRA/main.cpp || cmake_object_order_depends_target_proyecto2
+  DEP_FILE = CMakeFiles\proyecto2.dir\main.cpp.obj.d
+  FLAGS = -g -fdiagnostics-color=always
+  OBJECT_DIR = CMakeFiles\proyecto2.dir
+  OBJECT_FILE_DIR = CMakeFiles\proyecto2.dir
 
-build CMakeFiles/repoPROGRA.dir/trie.cpp.obj: CXX_COMPILER__repoPROGRA_unscanned_Debug C$:/Users/hanksvi/CLionProjects/Progra_3/repoPROGRA/trie.cpp || cmake_object_order_depends_target_repoPROGRA
-  DEP_FILE = CMakeFiles\repoPROGRA.dir\trie.cpp.obj.d
-  FLAGS = -g -std=gnu++14 -fdiagnostics-color=always
-  OBJECT_DIR = CMakeFiles\repoPROGRA.dir
-  OBJECT_FILE_DIR = CMakeFiles\repoPROGRA.dir
+build CMakeFiles/proyecto2.dir/trie.cpp.obj: CXX_COMPILER__proyecto2_unscanned_Debug C$:/Users/hanksvi/CLionProjects/Progra_3/repoPROGRA/trie.cpp || cmake_object_order_depends_target_proyecto2
+  DEP_FILE = CMakeFiles\proyecto2.dir\trie.cpp.obj.d
+  FLAGS = -g -fdiagnostics-color=always
+  OBJECT_DIR = CMakeFiles\proyecto2.dir
+  OBJECT_FILE_DIR = CMakeFiles\proyecto2.dir
 
 
 # =============================================================================
-# Link build statements for EXECUTABLE target repoPROGRA
+# Link build statements for EXECUTABLE target proyecto2
 
 
 #############################################
-# Link the executable repoPROGRA.exe
+# Link the executable proyecto2.exe
 
-build repoPROGRA.exe: CXX_EXECUTABLE_LINKER__repoPROGRA_Debug CMakeFiles/repoPROGRA.dir/main.cpp.obj CMakeFiles/repoPROGRA.dir/trie.cpp.obj
+build proyecto2.exe: CXX_EXECUTABLE_LINKER__proyecto2_Debug CMakeFiles/proyecto2.dir/main.cpp.obj CMakeFiles/proyecto2.dir/trie.cpp.obj
   FLAGS = -g
   LINK_LIBRARIES = -lkernel32 -luser32 -lgdi32 -lwinspool -lshell32 -lole32 -loleaut32 -luuid -lcomdlg32 -ladvapi32
-  OBJECT_DIR = CMakeFiles\repoPROGRA.dir
+  OBJECT_DIR = CMakeFiles\proyecto2.dir
   POST_BUILD = cd .
   PRE_LINK = cd .
-  TARGET_FILE = repoPROGRA.exe
-  TARGET_IMPLIB = librepoPROGRA.dll.a
-  TARGET_PDB = repoPROGRA.exe.dbg
+  TARGET_FILE = proyecto2.exe
+  TARGET_IMPLIB = libproyecto2.dll.a
+  TARGET_PDB = proyecto2.exe.dbg
 
 
 #############################################
@@ -105,7 +105,7 @@ build rebuild_cache: phony CMakeFiles/rebuild_cache.util
 # =============================================================================
 # Target aliases.
 
-build repoPROGRA: phony repoPROGRA.exe
+build proyecto2: phony proyecto2.exe
 
 # =============================================================================
 # Folder targets.
@@ -115,7 +115,7 @@ build repoPROGRA: phony repoPROGRA.exe
 #############################################
 # Folder: C:/Users/hanksvi/CLionProjects/Progra_3/repoPROGRA/cmake-build-debug
 
-build all: phony repoPROGRA.exe
+build all: phony proyecto2.exe
 
 # =============================================================================
 # Built-in targets

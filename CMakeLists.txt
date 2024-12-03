@@ -1,14 +1,9 @@
 cmake_minimum_required(VERSION 3.27)
-project(repoPROGRA)
+project(proyecto2)
 
-set(CMAKE_CXX_STANDARD 14)
+set(CMAKE_CXX_STANDARD 17)
 
-add_executable(repoPROGRA
-
-        Arbol.h
-        Pelicula.h
-        trie.h
+add_executable(proyecto2 main.cpp
         trie.cpp
-        main.cpp
-)
-add_executable(interfaz menu.cpp)
+        trie.h
+        Pelicula.h)

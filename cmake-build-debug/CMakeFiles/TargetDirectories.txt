@@ -1,4 +1,0 @@
-C:/Users/Asus/Documents/Programacion_Proyects/repoPROGRA/cmake-build-debug/CMakeFiles/repoPROGRA.dir
-C:/Users/Asus/Documents/Programacion_Proyects/repoPROGRA/cmake-build-debug/CMakeFiles/interfaz.dir
-C:/Users/Asus/Documents/Programacion_Proyects/repoPROGRA/cmake-build-debug/CMakeFiles/edit_cache.dir
-C:/Users/Asus/Documents/Programacion_Proyects/repoPROGRA/cmake-build-debug/CMakeFiles/rebuild_cache.dir

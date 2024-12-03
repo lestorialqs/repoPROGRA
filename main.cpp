@@ -2,19 +2,30 @@
 #include <fstream>
 #include <sstream>
 #include <string>
+#include <vector>
 #include <algorithm>
 
 using namespace std;
 
+vector<string> dividirEnPalabras(const string &frase) {
+    stringstream ss(frase);
+    string palabra;
+    vector<string> palabras;
+    while (ss >> palabra) {
+        palabras.push_back(palabra);
+    }
+    return palabras;
+}
+
 string obtenerTitulo(const string &linea) {
     stringstream ss(linea);
     string id, titulo;
-    getline(ss, id, '|');
-    getline(ss, titulo, '|');
+    getline(ss, id, '|');       // Leer el ID
+    getline(ss, titulo, '|');   // Leer el título
     return titulo;
 }
 
-void buscarPeliculasPorFrase(const string &fraseClave, const string &archivo) {
+void buscarPeliculasPorPalabras(const vector<string> &palabrasClave, const string &archivo) {
     ifstream file(archivo);
     if (!file.is_open()) {
         cerr << "Error al abrir el archivo." << endl;
@@ -26,11 +37,19 @@ void buscarPeliculasPorFrase(const string &fraseClave, const string &archivo) {
 
     while (getline(file, linea)) {
         string lineaMin = linea;
-        string fraseMin = fraseClave;
         transform(lineaMin.begin(), lineaMin.end(), lineaMin.begin(), ::tolower);
-        transform(fraseMin.begin(), fraseMin.end(), fraseMin.begin(), ::tolower);
 
-        if (lineaMin.find(fraseMin) != string::npos) {
+        bool coincidencia = false;
+        for (const string &palabra : palabrasClave) {
+            string palabraMin = palabra;
+            transform(palabraMin.begin(), palabraMin.end(), palabraMin.begin(), ::tolower);
+            if (lineaMin.find(palabraMin) != string::npos) {
+                coincidencia = true;
+                break;
+            }
+        }
+
+        if (coincidencia) {
             string titulo = obtenerTitulo(linea);
             cout << "Titulo encontrado: " << titulo << endl;
             seEncontraron = true;
@@ -38,24 +57,27 @@ void buscarPeliculasPorFrase(const string &fraseClave, const string &archivo) {
     }
 
     if (!seEncontraron) {
-        cout << "No se encontraron peliculas con la frase proporcionada." << endl;
+        cout << "No se encontraron peliculas con las palabras clave proporcionadas." << endl;
     }
 
     file.close();
 }
 
-// Función principal
 int main() {
     string archivo = "limpio2.csv";
 
-    cout << "Ingrese una frase exacta para buscar peliculas: ";
+    cout << "Ingrese palabras clave para buscar peliculas: ";
     string fraseClave;
     getline(cin, fraseClave);
 
-    cout << "Buscando peliculas con la frase: \"" << fraseClave << "\"" << endl;
+    vector<string> palabrasClave = dividirEnPalabras(fraseClave);
+    cout << "Buscando peliculas con las palabras: ";
+    for (const string &palabra : palabrasClave) {
+        cout << "\"" << palabra << "\" ";
+    }
+    cout << endl;
 
-    buscarPeliculasPorFrase(fraseClave, archivo);
+    buscarPeliculasPorPalabras(palabrasClave, archivo);
 
     return 0;
 }
-

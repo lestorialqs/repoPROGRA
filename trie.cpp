@@ -1,4 +1,5 @@
 #include "trie.h"
+#include <unordered_set>
 #include <algorithm>
 
 using namespace std;
@@ -92,16 +93,21 @@ vector<string> Trie::searchByPhrase(const string& phrase) const {
 
     // Buscar en las películas asociadas
     collectMovies(root, results);
-    vector<string> filtered_results;
+
+    // Usar un set para evitar duplicados
+    unordered_set<string> uniques;
 
     for (const string& movie : results) {
         string lower_movie = movie;
         transform(lower_movie.begin(), lower_movie.end(), lower_movie.begin(), ::tolower);
 
         if (lower_movie.find(lower_phrase) != string::npos) {
-            filtered_results.push_back(movie);
+            uniques.insert(movie); // Agregar solo títulos únicos
         }
     }
+
+    // Convertir el set de vuelta a un vector
+    vector<string> filtered_results(uniques.begin(), uniques.end());
 
     return filtered_results;
 }

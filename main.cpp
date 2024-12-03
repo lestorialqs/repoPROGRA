@@ -2,18 +2,18 @@
 #include <fstream>
 #include <sstream>
 #include "trie.h"
-
+#include "Pelicula.h"
 using namespace std;
 
-void insertWords(Trie& trie, const string& text, const string& movie) {
+void insertWords(Trie& trie, const string& text, const Pelicula& movie) {
     stringstream ss(text);
     string word;
     while (ss >> word) {
-        trie.insert(word, movie);
+        trie.insert(word, movie.getTitulo());
     }
 
     // También insertar el título completo como frase exacta
-    trie.insert(text, movie);
+    trie.insert(text, movie.getTitulo());
 }
 
 void loadMovies(Trie& trie) {
@@ -35,7 +35,8 @@ void loadMovies(Trie& trie) {
         getline(ss, split, '|');
         getline(ss, synopsis_source, '|');
 
-        insertWords(trie, title, title);
+        Pelicula movie(imdb_id, title, plot_synopsis, tags, split, synopsis_source);
+        insertWords(trie, title, movie);
     }
 
     file.close();

@@ -13,7 +13,7 @@ struct TrieNode{
 
     TrieNode() : wordend(false) {}
 };
-
+// Trie.h
 class Trie {
 private:
     TrieNode* root;
@@ -27,6 +27,8 @@ public:
     void insert(const string& keyword, const string& movie);
     vector<string> searchInTitles(const string& keyword) const;
     void collectMovies(TrieNode* node, vector<string>& result) const;
+
+    vector<string> searchPhrase(const string& phrase) const;
 };
 
 #endif // TRIE_H

@@ -1,106 +1,147 @@
-//
-// Created by Asus on 3/12/2024.
-//
+#include "Menu.h"
+#include <fstream>
+#include <sstream>
 #include <iostream>
-#include <vector>
-#include <string>
-#include <unordered_map>
-
-#include "Pelicula.h"
 
 using namespace std;
 
-class Menu{
-    private:
-    unordered_map<string, Pelicula*> peliculasTarde;
-    unordered_map<string, Pelicula*> likes;
+// Función auxiliar para insertar palabras clave en el Trie
+void insertWords(Trie& trie, const string& text, const Pelicula& movie) {
+    stringstream ss(text);
+    string word;
+    while (ss >> word) {
+        trie.insert(word, movie.getTitulo(), movie.getSinopsis());
+    }
+    trie.insert(text, movie.getTitulo(), movie.getSinopsis());
+}
 
-public:
-    void mostrar();
-    void buscador();
-    void getMasTarde();
-    void getLikes();
-    void agregarLike(Pelicula * pelicula);
-    void agregarMasTarde(Pelicula *pelicula);
-    void eliminarPeliculasMasTarde(string id);
-    void eliminarPeliculaslike(string id);
+void Menu::cargarPeliculas() {
+    ifstream file("../limpio2.csv");
+    if (!file.is_open()) {
+        cerr << "Error: No se pudo abrir el archivo de la base de datos.\n";
+        return;
+    }
 
-};
+    string line;
+    while (getline(file, line)) {
+        stringstream ss(line);
+        string imdb_id, title, plot_synopsis, tags, split, synopsis_source;
 
+        getline(ss, imdb_id, '|');
+        getline(ss, title, '|');
+        getline(ss, plot_synopsis, '|');
+        getline(ss, tags, '|');
+        getline(ss, split, '|');
+        getline(ss, synopsis_source, '|');
 
+        Pelicula movie(imdb_id, title, plot_synopsis, tags, split, synopsis_source);
+        insertWords(trie, title, movie);
+    }
 
+    file.close();
+    cout << "Base de datos cargada con éxito.\n";
+}
 
-void Menu::mostrar() {
-    int option;
+// Métodos de búsqueda
+void Menu::buscarPorPrefijo() {
+    string prefix;
+    cout << "Ingrese un prefijo para buscar películas: ";
+    getline(cin, prefix);
 
-    while (true) {
-        cout << "\n=== Menú Principal ===\n";
-        cout << "1. Buscar Películas\n";
-        cout << "2. Peliculas en Ver mas Tarde\n";
-        cout << "3. Películas con Like\n";
-        cout << "4. Salir\n";
-        cout << "Seleccione una opción: ";
-        cin >> option;
-        cin.ignore();  // Ignorar el salto de línea después de la opción
-
-        switch (option) {
-            case 1: buscador(); break;
-            case 2: getMasTarde(); break;
-            case 3: getLikes(); break;
-            case 4: cout << "¡Hasta luego!\n"; return;
-            default: cout << "Opción no válida. Intente de nuevo.\n";
+    vector<string> results = trie.searchByPrefix(prefix);
+    if (!results.empty()) {
+        cout << "Películas encontradas:\n";
+        for (const string& movie : results) {
+            cout << "- " << movie << "\n";
         }
+    } else {
+        cout << "No se encontraron películas para el prefijo ingresado.\n";
     }
 }
 
-void Menu::buscador() {
-    cout << "Buscando películas...\n";
-    // Aquí puedes insertar la lógica de búsqueda
-    // Por ahora solo regresamos al menú principal
-}
+void Menu::buscarPorPalabraClave() {
+    string keyword;
+    cout << "Ingrese una palabra clave para buscar películas: ";
+    getline(cin, keyword);
 
-void Menu::getMasTarde() {
-    cout << "Mostrando películas en 'Ver más tarde'...\n";
-
-
-}
-
-void Menu::getLikes() {
-    cout << "Mostrando películas con 'Like'...\n";
-    // Aquí puedes insertar la lógica para mostrar las películas con 'Like'
-    // Por ahora solo regresamos al menú principal
-
-}
-void Menu::agregarMasTarde(Pelicula *pelicula) {
-
-    peliculasTarde[pelicula->getId()] = pelicula;
-}
-void Menu::agregarLike(Pelicula *pelicula) {
-
-    peliculasTarde[pelicula->getId()] = pelicula;
-}
-
-void Menu::eliminarPeliculasMasTarde(string id) {
-    bool eliminado = false;
-
-    if (peliculasTarde.erase(id) > 0) {
-        eliminado = true;
-        cout << "Película eliminada de peliculasTarde con ID: " << id << endl;
-    }
-
-    if (!eliminado) {
-        cout << "No se encontró ninguna película con ID: " << id << endl;
+    vector<string> results = trie.searchByWord(keyword);
+    if (!results.empty()) {
+        cout << "Películas encontradas:\n";
+        for (const string& movie : results) {
+            cout << "- " << movie << "\n";
+        }
+    } else {
+        cout << "No se encontraron películas para la palabra clave ingresada.\n";
     }
 }
-void Menu::eliminarPeliculaslike(string id) {
-    bool eliminado = false;
 
-    if (likes.erase(id) > 0) {
-        eliminado = true;
-        cout << "Película eliminada de peliculasTarde con ID: " << id << endl;
-    }
+void Menu::buscarPorFraseExacta() {
+    string phrase;
+    cout << "Ingrese una frase exacta para buscar películas por título: ";
+    getline(cin, phrase);
 
-    if (!eliminado) {
-        cout << "No se encontró ninguna película con ID: " << id << endl;
+    vector<string> results = trie.searchByTitle(phrase);
+    if (!results.empty()) {
+        cout << "Películas encontradas:\n";
+        for (const string& title : results) {
+            cout << "- Título: " << title << "\n";
+        }
+    } else {
+        cout << "No se encontraron películas para la frase exacta ingresada en los títulos.\n";
     }
+}
+
+void Menu::buscarEnSinopsis() {
+    string phrase;
+    cout << "Ingrese una frase para buscar en las sinopsis: ";
+    getline(cin, phrase);
+
+    vector<pair<string, string>> results = trie.searchByPhrase(phrase);
+    if (!results.empty()) {
+        cout << "Películas encontradas en las sinopsis:\n";
+        for (const auto& [title, synopsis] : results) {
+            cout << "- Título: " << title << endl;
+        }
+    } else {
+        cout << "No se encontraron coincidencias en las sinopsis para la frase ingresada.\n";
+    }
+}
+
+// Método para iniciar el menú
+void Menu::iniciar() {
+    cargarPeliculas();
+
+    int choice;
+    do {
+        cout << "\n--- Menú ---\n";
+        cout << "1. Buscar por prefijo\n";
+        cout << "2. Buscar por palabra clave\n";
+        cout << "3. Buscar por frase exacta\n";
+        cout << "4. Buscar en sinopsis\n";
+        cout << "5. Salir\n";
+        cout << "Elija una opción: ";
+        cin >> choice;
+        cin.ignore();
+
+        switch (choice) {
+            case 1:
+                buscarPorPrefijo();
+                break;
+            case 2:
+                buscarPorPalabraClave();
+                break;
+            case 3:
+                buscarPorFraseExacta();
+                break;
+            case 4:
+                buscarEnSinopsis();
+                break;
+            case 5:
+                cout << "¡Gracias por usar el sistema de búsqueda de películas!\n";
+                break;
+            default:
+                cout << "Opción no válida. Intente de nuevo.\n";
+                break;
+        }
+    } while (choice != 5);
 }

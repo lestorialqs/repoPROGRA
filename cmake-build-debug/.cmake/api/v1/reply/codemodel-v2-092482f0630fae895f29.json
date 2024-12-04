@@ -39,7 +39,7 @@
 				{
 					"directoryIndex" : 0,
 					"id" : "proyecto2::@6890427a1f51a3e7e1df",
-					"jsonFile" : "target-proyecto2-Debug-cccae40b572f9fb8fbee.json",
+					"jsonFile" : "target-proyecto2-Debug-9b29545bed8a41ff3c9c.json",
 					"name" : "proyecto2",
 					"projectIndex" : 0
 				}
@@ -49,13 +49,8 @@
 	"kind" : "codemodel",
 	"paths" : 
 	{
-<<<<<<<< HEAD:cmake-build-debug/.cmake/api/v1/reply/codemodel-v2-b59e4236b6f0b5402cf7.json
 		"build" : "C:/Users/Asus/Documents/Programacion_Proyects/repoPROGRA/cmake-build-debug",
 		"source" : "C:/Users/Asus/Documents/Programacion_Proyects/repoPROGRA"
-========
-		"build" : "C:/prograaaaa/repoPROGRA/cmake-build-debug",
-		"source" : "C:/prograaaaa/repoPROGRA"
->>>>>>>> 44adcc0e710d58d90f1b06ff66c293b243d5fbdf:cmake-build-debug/.cmake/api/v1/reply/codemodel-v2-4289dcd92e8ff1694f42.json
 	},
 	"version" : 
 	{

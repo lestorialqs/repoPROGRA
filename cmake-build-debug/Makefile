@@ -152,6 +152,30 @@ main.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles\proyecto2.dir\build.make CMakeFiles/proyecto2.dir/main.cpp.s
 .PHONY : main.cpp.s
 
+menu.obj: menu.cpp.obj
+.PHONY : menu.obj
+
+# target to build an object file
+menu.cpp.obj:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\proyecto2.dir\build.make CMakeFiles/proyecto2.dir/menu.cpp.obj
+.PHONY : menu.cpp.obj
+
+menu.i: menu.cpp.i
+.PHONY : menu.i
+
+# target to preprocess a source file
+menu.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\proyecto2.dir\build.make CMakeFiles/proyecto2.dir/menu.cpp.i
+.PHONY : menu.cpp.i
+
+menu.s: menu.cpp.s
+.PHONY : menu.s
+
+# target to generate assembly for a file
+menu.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\proyecto2.dir\build.make CMakeFiles/proyecto2.dir/menu.cpp.s
+.PHONY : menu.cpp.s
+
 trie.obj: trie.cpp.obj
 .PHONY : trie.obj
 
@@ -188,6 +212,9 @@ help:
 	@echo ... main.obj
 	@echo ... main.i
 	@echo ... main.s
+	@echo ... menu.obj
+	@echo ... menu.i
+	@echo ... menu.s
 	@echo ... trie.obj
 	@echo ... trie.i
 	@echo ... trie.s

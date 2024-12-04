@@ -7,4 +7,5 @@ add_executable(proyecto2 main.cpp
         trie.cpp
         trie.h
         Pelicula.h
+        menu.cpp
         )

@@ -1,27 +1,28 @@
-//
-// Created by Asus on 3/12/2024.
-//
-
 #ifndef MENU_H
 #define MENU_H
 
+#include <iostream>
+#include <vector>
+#include "Trie.h"
+#include "Pelicula.h"
 
 class Menu {
 private:
-  vector<Pelicula> movies;  // Lista de todas las películas
-  vector<Pelicula> laterList;  // Películas marcadas como "Ver más tarde"
-  vector<Pelicula> likedMovies;  // Películas marcadas como "Like"
+  Trie trie;
+
+  // Métodos privados para encapsular las funcionalidades
+  void cargarPeliculas();
+  void buscarPorPrefijo();
+  void buscarPorPalabraClave();
+  void buscarPorFraseExacta();
+  void buscarEnSinopsis();
 
 public:
-  void showMainMenu();  // Mostrar el menú principal
-  void showSearchMenu();  // Menú para buscar películas
-  void showMovieDetails(int movieIndex);  // Mostrar detalles de una película
-  void showLaterList();  // Mostrar películas en "Ver más tarde"
-  void showLikedMovies();  // Mostrar películas con "Like"
-  void showSearchResults(const vector<Pelicula>& searchResults);  // Mostrar resultados de búsqueda
-  void addToLaterList(int movieIndex);  // Agregar a "Ver más tarde"
-  void addToLikedMovies(int movieIndex);  // Agregar a "Like"
-  void showSimilarMovies(int movieIndex);  // Mostrar películas similares
+  // Constructor por defecto
+  Menu() = default;
+
+  // Método principal para iniciar el menú
+  void iniciar();
 };
 
-#endif //MENU_H
+#endif // MENU_H

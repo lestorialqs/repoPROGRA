@@ -19,7 +19,7 @@ Esta es una aplicación innovadora de búsqueda de películas diseñada para ofr
 - **Optimización con Trie**: Implementa la estructura de datos **Trie**, que garantiza búsquedas muy rápidas y precisas.  
 - **Gestión personalizada**: Incluye una lista intuitiva de "Ver Más Tarde" para planificar visualizaciones futuras.
 
-La aplicación optimiza el proceso de búsqueda y gestión de películas mediante un nodos, que mejora la exploración por películas con su atributo.
+La aplicación optimiza el proceso de búsqueda y gestión de películas mediante nodos, que mejora la exploración por películas con su atributo.
 ---
 ## **Enlace al repositorio de archivos**
 

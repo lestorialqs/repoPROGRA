@@ -45,7 +45,7 @@ void loadMovies(Trie& trie) {
     }
 
     file.close();
-    cout << "Base de datos cargada con éxito.\n";
+    cout << "Base de datos cargada con exito.\n";
 }
 
 int main() {
@@ -56,57 +56,57 @@ int main() {
 
     int choice;
     do {
-        cout << "\n--- Menú ---\n";
+        cout << "\n--- Menu ---\n";
         cout << "1. Buscar por prefijo\n";
         cout << "2. Buscar por palabra clave\n";
         cout << "3. Buscar por frase exacta\n";
         cout << "4. Buscar en sinopsis\n";
         cout << "5. Salir\n";
-        cout << "Elija una opción: ";
+        cout << "Elija una opcion: ";
         cin >> choice;
         cin.ignore();
 
         if (choice == 1) {
             string prefix;
-            cout << "Ingrese un prefijo para buscar películas: ";
+            cout << "Ingrese un prefijo para buscar peliculas: ";
             getline(cin, prefix);
 
             vector<string> results = trie.searchByPrefix(prefix);
             if (!results.empty()) {
-                cout << "Películas encontradas:\n";
+                cout << "Peliculas encontradas:\n";
                 for (const string& movie : results) {
                     cout << "- " << movie << "\n";
                 }
             } else {
-                cout << "No se encontraron películas para el prefijo ingresado.\n";
+                cout << "No se encontraron peliculas para el prefijo ingresado.\n";
             }
         } else if (choice == 2) {
             string keyword;
-            cout << "Ingrese una palabra clave para buscar películas: ";
+            cout << "Ingrese una palabra clave para buscar peliculas: ";
             getline(cin, keyword);
 
             vector<string> results = trie.searchByWord(keyword);
             if (!results.empty()) {
-                cout << "Películas encontradas:\n";
+                cout << "Peliculas encontradas:\n";
                 for (const string& movie : results) {
                     cout << "- " << movie << "\n";
                 }
             } else {
-                cout << "No se encontraron películas para la palabra clave ingresada.\n";
+                cout << "No se encontraron peliculas para la palabra clave ingresada.\n";
             }
         } else if (choice == 3) {
             string phrase;
-            cout << "Ingrese una frase exacta para buscar películas: ";
+            cout << "Ingrese una frase exacta para buscar peliculas por titulo: ";
             getline(cin, phrase);
 
-            vector<pair<string, string>> results = trie.searchByPhrase(phrase);
+            vector<string> results = trie.searchByTitle(phrase);
             if (!results.empty()) {
-                cout << "Películas encontradas:\n";
-                for (const auto& [title, synopsis] : results) {
-                    cout << "- Título: " << title << endl;
+                cout << "Peliculas encontradas:\n";
+                for (const string& title : results) {
+                    cout << "- Titulo: " << title << "\n";
                 }
             } else {
-                cout << "No se encontraron películas para la frase exacta ingresada.\n";
+                cout << "No se encontraron peliculas para la frase exacta ingresada en los titulos.\n";
             }
         } else if (choice == 4) {
             string phrase;
@@ -115,20 +115,20 @@ int main() {
 
             vector<pair<string, string>> results = trie.searchByPhrase(phrase);
             if (!results.empty()) {
-                cout << "Películas encontradas en las sinopsis:\n";
+                cout << "Peliculas encontradas en las sinopsis:\n";
                 for (const auto& [title, synopsis] : results) {
-                    if (synopsis.find(phrase) != string::npos) { // Verificar coincidencia en sinopsis
-                        cout << "- Título: " << title << endl;
-                    }
+                    // Verificar coincidencia en sinopsis
+                        cout << "- Titulo: " << title << endl;
+
                 }
             } else {
                 cout << "No se encontraron coincidencias en las sinopsis para la frase ingresada.\n";
             }
         } else if (choice != 5) {
-            cout << "Opción no válida. Intente de nuevo.\n";
+            cout << "Opcion no valida. Intente de nuevo.\n";
         }
     } while (choice != 5);
 
-    cout << "¡Gracias por usar el sistema de búsqueda de películas!\n";
+    cout << "¡Gracias por usar el sistema de busqueda de peliculas!\n";
     return 0;
 }

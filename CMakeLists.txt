@@ -6,4 +6,5 @@ set(CMAKE_CXX_STANDARD 17)
 add_executable(proyecto2 main.cpp
         trie.cpp
         trie.h
-        Pelicula.h)
+        Pelicula.h
+        )

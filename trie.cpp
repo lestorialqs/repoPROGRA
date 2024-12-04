@@ -1,123 +1,117 @@
-#include "trie.h"
+#include "Trie.h"
 #include <unordered_set>
-#include <algorithm>
+// Destructor del nodo TrieNode
+TrieNode::~TrieNode() {
+    for (auto& child : children) {
+        delete child.second;
+    }
+}
 
-using namespace std;
-
+// Constructor y destructor de Trie
 Trie::Trie() {
     root = new TrieNode();
 }
 
 Trie::~Trie() {
-    deleteTrie(root);
+    delete root;
 }
 
-void Trie::deleteTrie(TrieNode* node) {
-    for (auto& pair : node->children) {
-        deleteTrie(pair.second);
-    }
-    delete node;
-}
-
-void Trie::insert(const string& palabra_clave, const string& movie) {
-    TrieNode* actual = root;
+// Inserción de palabra clave, título y sinopsis
+void Trie::insert(const string& palabraClave, const string& movie, const string& synopsis) {
+    TrieNode* current = root;
 
     // Convertir la palabra clave a minúsculas
-    string lower_palabra_clave = palabra_clave;
-    transform(lower_palabra_clave.begin(), lower_palabra_clave.end(), lower_palabra_clave.begin(), ::tolower);
+    string lowerPalabraClave = palabraClave;
+    transform(lowerPalabraClave.begin(), lowerPalabraClave.end(), lowerPalabraClave.begin(), ::tolower);
 
-    for (char ch : lower_palabra_clave) {
-        if (!actual->children.count(ch)) {
-            actual->children[ch] = new TrieNode();
+
+    // Insertar en el trie
+    for (char ch : lowerPalabraClave) {
+        if (!current->children[ch]) {
+            current->children[ch] = new TrieNode();
         }
-        actual = actual->children[ch];
+        current = current->children[ch];
     }
-    actual->wordend = true;
 
-    // Evitar duplicados en la lista de películas
-    if (find(actual->movies.begin(), actual->movies.end(), movie) == actual->movies.end()) {
-        actual->movies.push_back(movie);
+    current->wordEnd = true;
+
+    // Evitar duplicados
+    if (find(current->movies.begin(), current->movies.end(), movie) == current->movies.end()) {
+        current->movies.push_back(movie);
+        current->synopses.push_back(synopsis);
     }
 }
 
+// Búsqueda por prefijo
 vector<string> Trie::searchByPrefix(const string& prefix) const {
-    TrieNode* actual = root;
+    TrieNode* current = root;
 
-    // Convertir el prefijo a minúsculas
-    string lower_prefix = prefix;
-    transform(lower_prefix.begin(), lower_prefix.end(), lower_prefix.begin(), ::tolower);
+    // Convertir prefijo a minúsculas
+    string lowerPrefix = prefix;
+    transform(lowerPrefix.begin(), lowerPrefix.end(), lowerPrefix.begin(), ::tolower);
 
-    // Recorrer el Trie según el prefijo
-    for (char ch : lower_prefix) {
-        if (!actual->children.count(ch)) {
-            return {}; // Prefijo no encontrado
+    for (char ch : lowerPrefix) {
+        if (!current->children[ch]) {
+            return {};
         }
-        actual = actual->children[ch];
+        current = current->children[ch];
     }
 
-    // Recolectar todas las películas desde este nodo
     vector<string> result;
-    collectMovies(actual, result);
+    vector<string> dummySynopses;
+    collectMovies(current, result, dummySynopses);
     return result;
 }
 
+// Búsqueda por palabra
 vector<string> Trie::searchByWord(const string& word) const {
-    TrieNode* actual = root;
-
-    // Convertir la palabra a minúsculas
-    string lower_word = word;
-    transform(lower_word.begin(), lower_word.end(), lower_word.begin(), ::tolower);
-
-    // Recorrer el Trie según la palabra
-    for (char ch : lower_word) {
-        if (!actual->children.count(ch)) {
-            return {}; // Palabra no encontrada
-        }
-        actual = actual->children[ch];
-    }
-
-    // Si no es el final de una palabra, no es válida
-    if (!actual->wordend) {
-        return {};
-    }
-
-    return actual->movies;
+    return searchByPrefix(word);
 }
 
-vector<string> Trie::searchByPhrase(const string& phrase) const {
+
+
+
+// Búsqueda por frase en título o sinopsis
+vector<pair<string, string>> Trie::searchByPhrase(const string& phrase) const {
     vector<string> results;
-
-    // Convertir la frase a minúsculas
-    string lower_phrase = phrase;
-    transform(lower_phrase.begin(), lower_phrase.end(), lower_phrase.begin(), ::tolower);
-
-    // Buscar en las películas asociadas
-    collectMovies(root, results);
+    vector<string> synopses;
+    collectMovies(root, results, synopses);
 
     // Usar un set para evitar duplicados
     unordered_set<string> uniques;
 
-    for (const string& movie : results) {
-        string lower_movie = movie;
-        transform(lower_movie.begin(), lower_movie.end(), lower_movie.begin(), ::tolower);
+    vector<pair<string, string>> filteredResults;
+    string lowerPhrase = phrase;
+    transform(lowerPhrase.begin(), lowerPhrase.end(), lowerPhrase.begin(), ::tolower);
 
-        if (lower_movie.find(lower_phrase) != string::npos) {
-            uniques.insert(movie); // Agregar solo títulos únicos
+
+    for (size_t i = 0; i < results.size(); ++i) {
+        string lowerTitle = results[i];
+        string lowerSynopsis = synopses[i];
+
+        transform(lowerTitle.begin(), lowerTitle.end(), lowerTitle.begin(), ::tolower);
+        transform(lowerSynopsis.begin(), lowerSynopsis.end(), lowerSynopsis.begin(), ::tolower);
+
+        if ((lowerTitle.find(lowerPhrase) != string::npos || lowerSynopsis.find(lowerPhrase) != string::npos) &&
+            uniques.find(lowerTitle) == uniques.end()) {
+
+            filteredResults.emplace_back(results[i], synopses[i]);
+            uniques.insert(lowerTitle); // Marcar el título como añadido
         }
     }
-
-    // Convertir el set de vuelta a un vector
-    vector<string> filtered_results(uniques.begin(), uniques.end());
-
-    return filtered_results;
+    return filteredResults;
 }
 
-void Trie::collectMovies(TrieNode* node, vector<string>& result) const {
-    if (node->wordend) {
+
+
+// Recopilar títulos y sinopsis desde un nodo Trie
+void Trie::collectMovies(TrieNode* node, vector<string>& result, vector<string>& synopses) const {
+    if (node->wordEnd) {
         result.insert(result.end(), node->movies.begin(), node->movies.end());
+        synopses.insert(synopses.end(), node->synopses.begin(), node->synopses.end());
     }
 
-    for (auto& p : node->children) {
-        collectMovies(p.second, result);
+    for (auto& child : node->children) {
+        collectMovies(child.second, result, synopses);
     }
 }

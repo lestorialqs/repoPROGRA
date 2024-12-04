@@ -47,15 +47,32 @@ void Menu::buscarPorFraseExacta() {
     cout << "Ingrese una frase exacta para buscar películas por título: ";
     getline(cin, phrase);
 
-    vector<string> results = trie.searchByTitle(phrase);
+    vector <pair<string, string>> results = trie.searchByTitle(phrase);
     if (!results.empty()) {
-        cout << "Películas encontradas:\n";
-        for (const string& title : results) {
-            cout << "- Título: " << title << "\n";
+        cout << "Películas encontradas en las sinopsis:\n";
+        for (const auto &[title, synopsis]: results) {
+            cout << "- Título: " << title << endl;
         }
     } else {
         cout << "No se encontraron películas para la frase exacta ingresada en los títulos.\n";
     }
+    string titleBuscado;
+    cout << "Ingrese el titulo de la pelicula que desea ver info: ";
+    getline(cin, titleBuscado);
+    for (const auto &[title, synopsis]: results) {
+        if (title.find(titleBuscado) != string::npos) {
+            cout << "- Título: " << title << endl;
+            cout << "- Sinopsis: " << synopsis << endl;
+            break;
+        }
+    }
+    string decision;
+    cout << "- Ver mas tarde              - Like" << endl;
+    cout << "- Retroceder" << endl;
+    cout << "Ingresa la opcion: ";
+    getline(cin, decision);
+    if (decision == "Retroceder")
+        iniciar();
 }
 
 void Menu::buscarEnSinopsis() {
@@ -69,6 +86,25 @@ void Menu::buscarEnSinopsis() {
         for (const auto& [title, synopsis] : results) {
             cout << "- Título: " << title << endl;
         }
+        string titleBuscado;
+        cout<<"Ingrese el titulo de la pelicula que desea ver info: ";
+        getline(cin, titleBuscado);
+        for (const auto& [title, synopsis] : results) {
+            if(title.find(titleBuscado) != string::npos) {
+                cout << "- Título: " << title << endl;
+                cout << "- Sinopsis: " << synopsis << endl;
+                break;
+            }
+            string decision;
+            cout<<"- Ver mas tarde              - Like"<<endl;
+            cout<<"- Retroceder"<<endl;
+            cout<<"Ingresa la opcion: ";
+            getline(cin, decision);
+            if(decision == "Retroceder")
+                iniciar();
+        }
+
+
     } else {
         cout << "No se encontraron coincidencias en las sinopsis para la frase ingresada.\n";
     }

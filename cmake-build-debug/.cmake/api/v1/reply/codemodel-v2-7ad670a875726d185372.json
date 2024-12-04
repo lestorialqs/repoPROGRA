@@ -49,8 +49,8 @@
 	"kind" : "codemodel",
 	"paths" : 
 	{
-		"build" : "C:/Users/hanksvi/CLionProjects/Progra_3/repoPROGRA/cmake-build-debug",
-		"source" : "C:/Users/hanksvi/CLionProjects/Progra_3/repoPROGRA"
+		"build" : "C:/prograa/repoPROGRA/cmake-build-debug",
+		"source" : "C:/prograa/repoPROGRA"
 	},
 	"version" : 
 	{

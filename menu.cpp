@@ -44,24 +44,24 @@ void Menu::cargarPeliculas() {
 
 void Menu::buscarPorFraseExacta() {
     string phrase;
-    cout << "Ingrese una frase exacta para buscar películas por título: ";
+    cout << "Ingrese una frase exacta para buscar peliculas por titulo: ";
     getline(cin, phrase);
 
     vector <pair<string, string>> results = trie.searchByTitle(phrase);
     if (!results.empty()) {
-        cout << "Películas encontradas en las sinopsis:\n";
+        cout << "Peliculas encontradas en las sinopsis:\n";
         for (const auto &[title, synopsis]: results) {
             cout << "- Título: " << title << endl;
         }
     } else {
-        cout << "No se encontraron películas para la frase exacta ingresada en los títulos.\n";
+        cout << "No se encontraron peliculas para la frase exacta ingresada en los titulos.\n";
     }
     string titleBuscado;
     cout << "Ingrese el titulo de la pelicula que desea ver info: ";
     getline(cin, titleBuscado);
     for (const auto &[title, synopsis]: results) {
         if (title.find(titleBuscado) != string::npos) {
-            cout << "- Título: " << title << endl;
+            cout << "- Titulo: " << title << endl;
             cout << "- Sinopsis: " << synopsis << endl;
             break;
         }
@@ -82,16 +82,16 @@ void Menu::buscarEnSinopsis() {
 
     vector<pair<string, string>> results = trie.searchByPhrase(phrase);
     if (!results.empty()) {
-        cout << "Películas encontradas en las sinopsis:\n";
+        cout << "Peliculas encontradas en las sinopsis:\n";
         for (const auto& [title, synopsis] : results) {
-            cout << "- Título: " << title << endl;
+            cout << "- Titulo: " << title << endl;
         }
         string titleBuscado;
         cout<<"Ingrese el titulo de la pelicula que desea ver info: ";
         getline(cin, titleBuscado);
         for (const auto& [title, synopsis] : results) {
             if(title.find(titleBuscado) != string::npos) {
-                cout << "- Título: " << title << endl;
+                cout << "- Titulo: " << title << endl;
                 cout << "- Sinopsis: " << synopsis << endl;
                 break;
             }

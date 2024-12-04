@@ -79,7 +79,7 @@ vector<pair<string, string>> Trie::searchByPhrase(const string& phrase) const {
 
 // Recopilar títulos y sinopsis desde un nodo Trie
 
-vector<string> Trie::searchByTitle(const string& phrase) const {
+vector<pair<string, string>> Trie::searchByTitle(const string& phrase) const {
     vector<string> results;
     vector<string> dummySynopses; // Sinopsis no son necesarias aquí
     collectMovies(root, results, dummySynopses);

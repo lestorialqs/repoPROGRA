@@ -35,7 +35,9 @@ void Menu::cargarPeliculas() {
         getline(ss, synopsis_source, '|');
 
         Pelicula movie(imdb_id, title, plot_synopsis, tags, split, synopsis_source);
+
         insertWords(trie, title, movie);
+
     }
 
     file.close();
@@ -49,6 +51,7 @@ void Menu::buscarPorFraseExacta() {
 
     vector<string> results = trie.searchByTitle(phrase);
     if (!results.empty()) {
+
         cout << "Películas encontradas:\n";
         for (const string& title : results) {
             cout << "- Título: " << title << "\n";
@@ -60,11 +63,16 @@ void Menu::buscarPorFraseExacta() {
 
 void Menu::buscarEnSinopsis() {
     string phrase;
+
+
+
+
     cout << "Ingrese una frase para buscar en las sinopsis: ";
     getline(cin, phrase);
 
     vector<pair<string, string>> results = trie.searchByPhrase(phrase);
     if (!results.empty()) {
+
         cout << "Películas encontradas en las sinopsis:\n";
         for (const auto& [title, synopsis] : results) {
             cout << "- Título: " << title << endl;
@@ -73,8 +81,6 @@ void Menu::buscarEnSinopsis() {
         cout << "No se encontraron coincidencias en las sinopsis para la frase ingresada.\n";
     }
 }
-
-// Método para iniciar el menú
 void Menu::iniciar() {
     cargarPeliculas();
 

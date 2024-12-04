@@ -9,4 +9,10 @@ add_executable(proyecto2 main.cpp
         Pelicula.h
         menu.cpp
         Historial.cpp
-)
+
+
+
+        SearchStrategy.cpp
+        SearchStrategy.h
+
+        )

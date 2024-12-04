@@ -467,6 +467,7 @@ CMakeFiles/proyecto2.dir/menu.cpp.obj: D:/ANEL/UNIVERSIDAD/3er\ CICLO/PROGRAMACI
   D:/ANEL/UNIVERSIDAD/3er\ CICLO/PROGRAMACION\ 3/final_proyectoprogra/repoPROGRA/Historial.h \
   D:/ANEL/UNIVERSIDAD/3er\ CICLO/PROGRAMACION\ 3/final_proyectoprogra/repoPROGRA/menu.h \
   D:/ANEL/UNIVERSIDAD/3er\ CICLO/PROGRAMACION\ 3/final_proyectoprogra/repoPROGRA/Pelicula.h \
+  D:/ANEL/UNIVERSIDAD/3er\ CICLO/PROGRAMACION\ 3/final_proyectoprogra/repoPROGRA/SearchStrategy.h \
   D:/ANEL/UNIVERSIDAD/3er\ CICLO/PROGRAMACION\ 3/final_proyectoprogra/repoPROGRA/trie.h
 
 CMakeFiles/proyecto2.dir/trie.cpp.obj: D:/ANEL/UNIVERSIDAD/3er\ CICLO/PROGRAMACION\ 3/final_proyectoprogra/repoPROGRA/trie.cpp \
@@ -1001,3 +1002,5 @@ D:/ANEL/UNIVERSIDAD/3er\ CICLO/PROGRAMACION\ 3/final_proyectoprogra/repoPROGRA/P
 D:/ANEL/UNIVERSIDAD/3er\ CICLO/PROGRAMACION\ 3/final_proyectoprogra/repoPROGRA/trie.h:
 
 D:/ANEL/UNIVERSIDAD/3er\ CICLO/PROGRAMACION\ 3/final_proyectoprogra/repoPROGRA/menu.cpp:
+
+D:/ANEL/UNIVERSIDAD/3er\ CICLO/PROGRAMACION\ 3/final_proyectoprogra/repoPROGRA/SearchStrategy.h:

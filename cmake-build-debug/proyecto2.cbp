@@ -91,6 +91,12 @@
 		<Unit filename="D:/ANEL/UNIVERSIDAD/3er CICLO/PROGRAMACION 3/final_proyectoprogra/repoPROGRA/Pelicula.h">
 			<Option target="proyecto2"/>
 		</Unit>
+		<Unit filename="D:/ANEL/UNIVERSIDAD/3er CICLO/PROGRAMACION 3/final_proyectoprogra/repoPROGRA/SearchStrategy.cpp">
+			<Option target="proyecto2"/>
+		</Unit>
+		<Unit filename="D:/ANEL/UNIVERSIDAD/3er CICLO/PROGRAMACION 3/final_proyectoprogra/repoPROGRA/SearchStrategy.h">
+			<Option target="proyecto2"/>
+		</Unit>
 		<Unit filename="D:/ANEL/UNIVERSIDAD/3er CICLO/PROGRAMACION 3/final_proyectoprogra/repoPROGRA/main.cpp">
 			<Option target="proyecto2"/>
 		</Unit>

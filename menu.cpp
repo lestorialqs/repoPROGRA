@@ -1,8 +1,13 @@
-#include "Menu.h"
+
 #include <fstream>
 #include <sstream>
 #include <iostream>
 #include "Historial.h"
+
+#include "Menu.h"
+
+#include "SearchStrategy.h"
+
 
 using namespace std;
 
@@ -47,51 +52,45 @@ void Menu::buscarPorFraseExacta() {
     string phrase;
     cout << "Ingrese una frase exacta para buscar peliculas por titulo: ";
     getline(cin, phrase);
+    ExactMatchStrategy *exactMatchStrategy= new ExactMatchStrategy;
 
-    vector<pair<string, string>> results = trie.searchByTitle(phrase);
+
+    vector <pair<string, string>> results = exactMatchStrategy->search(this->trie,phrase);
     if (!results.empty()) {
-        cout << "Peliculas encontradas en los titulos:\n";
-        for (const auto& [title, synopsis] : results) {
-            cout << "- Titulo: " << title << endl;
-        }
-
-        string titleBuscado;
-        cout << "Ingrese el titulo de la pelicula que desea ver informacion: ";
-        getline(cin, titleBuscado);
-        for (const auto& [title, synopsis] : results) {
-            if (title.find(titleBuscado) != string::npos) {
-                cout << "- Titulo: " << title << endl;
-                cout << "- Sinopsis: " << synopsis << endl;
-
-                string decision;
-                cout << "- Ver mas tarde              - Like" << endl;
-                cout << "- Retroceder" << endl;
-                cout << "Ingresa la opcion: ";
-                getline(cin, decision);
-
-                if (decision == "Ver mas tarde") {
-                    Historial::getInstance().agregarBusqueda(title);
-                    cout << "Pelicula agregada a Ver mas tarde.\n";
-                } else if (decision == "Like") {
-                    Historial::getInstance().agregarLike(title);
-                    cout << "¡Pelicula agregada a favoritos!\n";
-                } else if (decision == "Retroceder") {
-                    iniciar();
-                }
-                break;
-            }
+        cout << "Peliculas encontradas en las sinopsis:\n";
+        for (const auto &[title, synopsis]: results) {
+            cout << "- Título: " << title << endl;
         }
     } else {
         cout << "No se encontraron peliculas para la frase exacta ingresada en los titulos.\n";
     }
+
+    string titleBuscado;
+    cout << "Ingrese el titulo de la pelicula que desea ver info: ";
+    getline(cin, titleBuscado);
+    for (const auto &[title, synopsis]: results) {
+        if (title.find(titleBuscado) != string::npos) {
+            cout << "- Titulo: " << title << endl;
+            cout << "- Sinopsis: " << synopsis << endl;
+            break;
+        }
+    }
+    string decision;
+    cout << "- Ver mas tarde              - Like" << endl;
+    cout << "- Retroceder" << endl;
+    cout << "Ingresa la opcion: ";
+    getline(cin, decision);
+    if (decision == "Retroceder")
+        iniciar();
 }
 
 void Menu::buscarEnSinopsis() {
     string phrase;
     cout << "Ingrese una frase para buscar en las sinopsis: ";
     getline(cin, phrase);
+    SynopsisSearchStrategy *synopsis_search_strategy = new SynopsisSearchStrategy;
 
-    vector<pair<string, string>> results = trie.searchByPhrase(phrase);
+    vector<pair<string, string>> results = synopsis_search_strategy->search(this->trie,phrase);
     if (!results.empty()) {
         cout << "Peliculas encontradas en las sinopsis:\n";
         for (const auto& [title, synopsis] : results) {

@@ -152,6 +152,30 @@ Historial.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles\proyecto2.dir\build.make CMakeFiles/proyecto2.dir/Historial.cpp.s
 .PHONY : Historial.cpp.s
 
+SearchStrategy.obj: SearchStrategy.cpp.obj
+.PHONY : SearchStrategy.obj
+
+# target to build an object file
+SearchStrategy.cpp.obj:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\proyecto2.dir\build.make CMakeFiles/proyecto2.dir/SearchStrategy.cpp.obj
+.PHONY : SearchStrategy.cpp.obj
+
+SearchStrategy.i: SearchStrategy.cpp.i
+.PHONY : SearchStrategy.i
+
+# target to preprocess a source file
+SearchStrategy.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\proyecto2.dir\build.make CMakeFiles/proyecto2.dir/SearchStrategy.cpp.i
+.PHONY : SearchStrategy.cpp.i
+
+SearchStrategy.s: SearchStrategy.cpp.s
+.PHONY : SearchStrategy.s
+
+# target to generate assembly for a file
+SearchStrategy.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\proyecto2.dir\build.make CMakeFiles/proyecto2.dir/SearchStrategy.cpp.s
+.PHONY : SearchStrategy.cpp.s
+
 main.obj: main.cpp.obj
 .PHONY : main.obj
 
@@ -236,6 +260,9 @@ help:
 	@echo ... Historial.obj
 	@echo ... Historial.i
 	@echo ... Historial.s
+	@echo ... SearchStrategy.obj
+	@echo ... SearchStrategy.i
+	@echo ... SearchStrategy.s
 	@echo ... main.obj
 	@echo ... main.i
 	@echo ... main.s

@@ -81,25 +81,31 @@ vector<pair<string, string>> Trie::searchByPhrase(const string& phrase) const {
 
 vector<pair<string, string>> Trie::searchByTitle(const string& phrase) const {
     vector<string> results;
-    vector<string> dummySynopses; // Sinopsis no son necesarias aquí
-    collectMovies(root, results, dummySynopses);
+    vector<string> synopses; // Sinopsis no son necesarias aquí
+    collectMovies(root, results, synopses);
 
     // Usar un set para evitar duplicados
     unordered_set<string> uniques;
-    vector<string> filteredResults;
+    vector<pair<string, string>> filteredResults;
 
     string lowerPhrase = phrase;
     transform(lowerPhrase.begin(), lowerPhrase.end(), lowerPhrase.begin(), ::tolower);
 
-    for (const string& title : results) {
-        string lowerTitle = title;
+    for (size_t i = 0; i < results.size(); ++i) {
+        string lowerTitle = results[i];
+        string lowerSynopsis = synopses[i];
+
         transform(lowerTitle.begin(), lowerTitle.end(), lowerTitle.begin(), ::tolower);
+        transform(lowerSynopsis.begin(), lowerSynopsis.end(), lowerSynopsis.begin(), ::tolower);
 
         if (lowerTitle.find(lowerPhrase) != string::npos && uniques.find(lowerTitle) == uniques.end()) {
-            filteredResults.push_back(title);
+            filteredResults.emplace_back(results[i],synopses[i] );
             uniques.insert(lowerTitle); // Evitar duplicados
         }
+
+
     }
+
     return filteredResults;
 }
 void Trie::collectMovies(TrieNode* node, vector<string>& result, vector<string>& synopses) const {

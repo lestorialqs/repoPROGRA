@@ -39,40 +39,7 @@ void Menu::cargarPeliculas() {
     }
 
     file.close();
-    cout << "Base de datos cargada con éxito.\n";
-}
-
-// Métodos de búsqueda
-void Menu::buscarPorPrefijo() {
-    string prefix;
-    cout << "Ingrese un prefijo para buscar películas: ";
-    getline(cin, prefix);
-
-    vector<string> results = trie.searchByPrefix(prefix);
-    if (!results.empty()) {
-        cout << "Películas encontradas:\n";
-        for (const string& movie : results) {
-            cout << "- " << movie << "\n";
-        }
-    } else {
-        cout << "No se encontraron películas para el prefijo ingresado.\n";
-    }
-}
-
-void Menu::buscarPorPalabraClave() {
-    string keyword;
-    cout << "Ingrese una palabra clave para buscar películas: ";
-    getline(cin, keyword);
-
-    vector<string> results = trie.searchByWord(keyword);
-    if (!results.empty()) {
-        cout << "Películas encontradas:\n";
-        for (const string& movie : results) {
-            cout << "- " << movie << "\n";
-        }
-    } else {
-        cout << "No se encontraron películas para la palabra clave ingresada.\n";
-    }
+    cout << "Base de datos cargada con exito.\n";
 }
 
 void Menu::buscarPorFraseExacta() {
@@ -113,35 +80,27 @@ void Menu::iniciar() {
 
     int choice;
     do {
-        cout << "\n--- Menú ---\n";
-        cout << "1. Buscar por prefijo\n";
-        cout << "2. Buscar por palabra clave\n";
-        cout << "3. Buscar por frase exacta\n";
-        cout << "4. Buscar en sinopsis\n";
-        cout << "5. Salir\n";
-        cout << "Elija una opción: ";
+        cout << "\n--- Menu ---\n";
+        cout << "1. Buscar por frase exacta\n";
+        cout << "2. Buscar en sinopsis\n";
+        cout << "3. Salir\n";
+        cout << "Elija una opcion: ";
         cin >> choice;
         cin.ignore();
 
         switch (choice) {
             case 1:
-                buscarPorPrefijo();
-                break;
-            case 2:
-                buscarPorPalabraClave();
-                break;
-            case 3:
                 buscarPorFraseExacta();
                 break;
-            case 4:
+            case 2:
                 buscarEnSinopsis();
                 break;
-            case 5:
-                cout << "¡Gracias por usar el sistema de búsqueda de películas!\n";
+            case 3:
+                cout << "¡Gracias por usar el sistema de busqueda de peliculas!\n";
                 break;
             default:
-                cout << "Opción no válida. Intente de nuevo.\n";
+                cout << "Opcion no valida. Intente de nuevo.\n";
                 break;
         }
-    } while (choice != 5);
+    } while (choice != 3);
 }

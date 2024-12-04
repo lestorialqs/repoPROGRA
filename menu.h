@@ -12,8 +12,6 @@ private:
 
   // Métodos privados para encapsular las funcionalidades
   void cargarPeliculas();
-  void buscarPorPrefijo();
-  void buscarPorPalabraClave();
   void buscarPorFraseExacta();
   void buscarEnSinopsis();
 

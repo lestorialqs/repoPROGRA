@@ -42,33 +42,6 @@ void Trie::insert(const string& palabraClave, const string& movie, const string&
     }
 }
 
-// Búsqueda por prefijo
-vector<string> Trie::searchByPrefix(const string& prefix) const {
-    TrieNode* current = root;
-
-    // Convertir prefijo a minúsculas
-    string lowerPrefix = prefix;
-    transform(lowerPrefix.begin(), lowerPrefix.end(), lowerPrefix.begin(), ::tolower);
-
-    for (char ch : lowerPrefix) {
-        if (!current->children[ch]) {
-            return {};
-        }
-        current = current->children[ch];
-    }
-
-    vector<string> result;
-    vector<string> dummySynopses;
-    collectMovies(current, result, dummySynopses);
-    return result;
-}
-
-// Búsqueda por palabra
-vector<string> Trie::searchByWord(const string& word) const {
-    return searchByPrefix(word);
-}
-
-
 
 
 // Búsqueda por frase en título o sinopsis
@@ -105,16 +78,6 @@ vector<pair<string, string>> Trie::searchByPhrase(const string& phrase) const {
 
 
 // Recopilar títulos y sinopsis desde un nodo Trie
-void Trie::collectMovies(TrieNode* node, vector<string>& result, vector<string>& synopses) const {
-    if (node->wordEnd) {
-        result.insert(result.end(), node->movies.begin(), node->movies.end());
-        synopses.insert(synopses.end(), node->synopses.begin(), node->synopses.end());
-    }
-
-    for (auto& child : node->children) {
-        collectMovies(child.second, result, synopses);
-    }
-}
 
 vector<string> Trie::searchByTitle(const string& phrase) const {
     vector<string> results;
@@ -138,4 +101,14 @@ vector<string> Trie::searchByTitle(const string& phrase) const {
         }
     }
     return filteredResults;
+}
+void Trie::collectMovies(TrieNode* node, vector<string>& result, vector<string>& synopses) const {
+    if (node->wordEnd) {
+        result.insert(result.end(), node->movies.begin(), node->movies.end());
+        synopses.insert(synopses.end(), node->synopses.begin(), node->synopses.end());
+    }
+
+    for (auto& child : node->children) {
+        collectMovies(child.second, result, synopses);
+    }
 }

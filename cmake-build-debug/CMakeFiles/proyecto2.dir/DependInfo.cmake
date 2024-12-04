@@ -8,8 +8,8 @@ set(CMAKE_DEPENDS_LANGUAGES
 
 # The set of dependency files which are needed:
 set(CMAKE_DEPENDS_DEPENDENCY_FILES
-  "C:/Users/Asus/Documents/Programacion_Proyects/repoPROGRA/main.cpp" "CMakeFiles/proyecto2.dir/main.cpp.obj" "gcc" "CMakeFiles/proyecto2.dir/main.cpp.obj.d"
-  "C:/Users/Asus/Documents/Programacion_Proyects/repoPROGRA/trie.cpp" "CMakeFiles/proyecto2.dir/trie.cpp.obj" "gcc" "CMakeFiles/proyecto2.dir/trie.cpp.obj.d"
+  "C:/prograaaaa/repoPROGRA/main.cpp" "CMakeFiles/proyecto2.dir/main.cpp.obj" "gcc" "CMakeFiles/proyecto2.dir/main.cpp.obj.d"
+  "C:/prograaaaa/repoPROGRA/trie.cpp" "CMakeFiles/proyecto2.dir/trie.cpp.obj" "gcc" "CMakeFiles/proyecto2.dir/trie.cpp.obj.d"
   )
 
 # Targets to which this target links which contain Fortran sources.

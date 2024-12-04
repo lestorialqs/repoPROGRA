@@ -33,6 +33,7 @@ public:
     vector<string> searchByPrefix(const string& prefix) const;
     vector<string> searchByWord(const string& word) const;
     vector<pair<string, string>> searchByPhrase(const string& phrase) const; // Retorna título y sinopsis
+    vector<string> searchByTitle(const string& phrase) const;
 };
 
 #endif // TRIE_H

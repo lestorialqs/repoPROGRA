@@ -115,3 +115,27 @@ void Trie::collectMovies(TrieNode* node, vector<string>& result, vector<string>&
         collectMovies(child.second, result, synopses);
     }
 }
+
+vector<string> Trie::searchByTitle(const string& phrase) const {
+    vector<string> results;
+    vector<string> dummySynopses; // Sinopsis no son necesarias aquí
+    collectMovies(root, results, dummySynopses);
+
+    // Usar un set para evitar duplicados
+    unordered_set<string> uniques;
+    vector<string> filteredResults;
+
+    string lowerPhrase = phrase;
+    transform(lowerPhrase.begin(), lowerPhrase.end(), lowerPhrase.begin(), ::tolower);
+
+    for (const string& title : results) {
+        string lowerTitle = title;
+        transform(lowerTitle.begin(), lowerTitle.end(), lowerTitle.begin(), ::tolower);
+
+        if (lowerTitle.find(lowerPhrase) != string::npos && uniques.find(lowerTitle) == uniques.end()) {
+            filteredResults.push_back(title);
+            uniques.insert(lowerTitle); // Evitar duplicados
+        }
+    }
+    return filteredResults;
+}

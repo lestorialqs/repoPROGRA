@@ -2,6 +2,7 @@
 #include <fstream>
 #include <sstream>
 #include <iostream>
+#include "Historial.h"
 
 using namespace std;
 
@@ -44,35 +45,45 @@ void Menu::cargarPeliculas() {
 
 void Menu::buscarPorFraseExacta() {
     string phrase;
-    cout << "Ingrese una frase exacta para buscar películas por título: ";
+    cout << "Ingrese una frase exacta para buscar peliculas por titulo: ";
     getline(cin, phrase);
 
-    vector <pair<string, string>> results = trie.searchByTitle(phrase);
+    vector<pair<string, string>> results = trie.searchByTitle(phrase);
     if (!results.empty()) {
-        cout << "Películas encontradas en las sinopsis:\n";
-        for (const auto &[title, synopsis]: results) {
-            cout << "- Título: " << title << endl;
+        cout << "Peliculas encontradas en los titulos:\n";
+        for (const auto& [title, synopsis] : results) {
+            cout << "- Titulo: " << title << endl;
+        }
+
+        string titleBuscado;
+        cout << "Ingrese el titulo de la pelicula que desea ver informacion: ";
+        getline(cin, titleBuscado);
+        for (const auto& [title, synopsis] : results) {
+            if (title.find(titleBuscado) != string::npos) {
+                cout << "- Titulo: " << title << endl;
+                cout << "- Sinopsis: " << synopsis << endl;
+
+                string decision;
+                cout << "- Ver mas tarde              - Like" << endl;
+                cout << "- Retroceder" << endl;
+                cout << "Ingresa la opcion: ";
+                getline(cin, decision);
+
+                if (decision == "Ver mas tarde") {
+                    Historial::getInstance().agregarBusqueda(title);
+                    cout << "Pelicula agregada a Ver mas tarde.\n";
+                } else if (decision == "Like") {
+                    Historial::getInstance().agregarLike(title);
+                    cout << "¡Pelicula agregada a favoritos!\n";
+                } else if (decision == "Retroceder") {
+                    iniciar();
+                }
+                break;
+            }
         }
     } else {
-        cout << "No se encontraron películas para la frase exacta ingresada en los títulos.\n";
+        cout << "No se encontraron peliculas para la frase exacta ingresada en los titulos.\n";
     }
-    string titleBuscado;
-    cout << "Ingrese el titulo de la pelicula que desea ver info: ";
-    getline(cin, titleBuscado);
-    for (const auto &[title, synopsis]: results) {
-        if (title.find(titleBuscado) != string::npos) {
-            cout << "- Título: " << title << endl;
-            cout << "- Sinopsis: " << synopsis << endl;
-            break;
-        }
-    }
-    string decision;
-    cout << "- Ver mas tarde              - Like" << endl;
-    cout << "- Retroceder" << endl;
-    cout << "Ingresa la opcion: ";
-    getline(cin, decision);
-    if (decision == "Retroceder")
-        iniciar();
 }
 
 void Menu::buscarEnSinopsis() {
@@ -82,29 +93,37 @@ void Menu::buscarEnSinopsis() {
 
     vector<pair<string, string>> results = trie.searchByPhrase(phrase);
     if (!results.empty()) {
-        cout << "Películas encontradas en las sinopsis:\n";
+        cout << "Peliculas encontradas en las sinopsis:\n";
         for (const auto& [title, synopsis] : results) {
-            cout << "- Título: " << title << endl;
+            cout << "- Titulo: " << title << endl;
         }
+
         string titleBuscado;
-        cout<<"Ingrese el titulo de la pelicula que desea ver info: ";
+        cout << "Ingrese el titulo de la pelicula que desea ver info: ";
         getline(cin, titleBuscado);
         for (const auto& [title, synopsis] : results) {
-            if(title.find(titleBuscado) != string::npos) {
-                cout << "- Título: " << title << endl;
+            if (title.find(titleBuscado) != string::npos) {
+                cout << "- Titulo: " << title << endl;
                 cout << "- Sinopsis: " << synopsis << endl;
+
+                string decision;
+                cout << "- Ver mas tarde              - Like" << endl;
+                cout << "- Retroceder" << endl;
+                cout << "Ingresa la opcion: ";
+                getline(cin, decision);
+
+                if (decision == "Ver mas tarde") {
+                    Historial::getInstance().agregarBusqueda(title);
+                    cout << "Pelicula agregada a Ver mas tarde.\n";
+                } else if (decision == "Like") {
+                    Historial::getInstance().agregarLike(title);
+                    cout << "¡Pelicula agregada a favoritos!\n";
+                } else if (decision == "Retroceder") {
+                    iniciar();
+                }
                 break;
             }
-            string decision;
-            cout<<"- Ver mas tarde              - Like"<<endl;
-            cout<<"- Retroceder"<<endl;
-            cout<<"Ingresa la opcion: ";
-            getline(cin, decision);
-            if(decision == "Retroceder")
-                iniciar();
         }
-
-
     } else {
         cout << "No se encontraron coincidencias en las sinopsis para la frase ingresada.\n";
     }
@@ -119,7 +138,9 @@ void Menu::iniciar() {
         cout << "\n--- Menu ---\n";
         cout << "1. Buscar por frase exacta\n";
         cout << "2. Buscar en sinopsis\n";
-        cout << "3. Salir\n";
+        cout << "3. Ver agregadas a Ver mas tarde\n";
+        cout << "4. Ver likes\n";
+        cout << "5. Salir\n";
         cout << "Elija una opcion: ";
         cin >> choice;
         cin.ignore();
@@ -131,12 +152,28 @@ void Menu::iniciar() {
             case 2:
                 buscarEnSinopsis();
                 break;
-            case 3:
+            case 3: {
+                const auto& historial = Historial::getInstance().obtenerHistorial();
+                cout << "Peliculas agregadas a Ver mas tarde:\n";
+                for (const auto& busqueda : historial) {
+                    cout << "- " << busqueda << endl;
+                }
+                break;
+            }
+            case 4: {
+                const auto& likes = Historial::getInstance().obtenerLikes();
+                cout << "Peliculas marcadas como favoritas:\n";
+                for (const auto& pelicula : likes) {
+                    cout << "- " << pelicula << endl;
+                }
+                break;
+            }
+            case 5:
                 cout << "¡Gracias por usar el sistema de busqueda de peliculas!\n";
                 break;
             default:
                 cout << "Opcion no valida. Intente de nuevo.\n";
                 break;
         }
-    } while (choice != 3);
+    } while (choice != 5);
 }

@@ -55,7 +55,7 @@
 				}
 			],
 			"type" : "INTERNAL",
-			"value" : "c:/Users/hanksvi/CLionProjects/Progra_3/repoPROGRA/cmake-build-debug"
+			"value" : "d:/ANEL/UNIVERSIDAD/3er CICLO/PROGRAMACION 3/final_proyectoprogra/repoPROGRA/cmake-build-debug"
 		},
 		{
 			"name" : "CMAKE_CACHE_MAJOR_VERSION",
@@ -643,7 +643,7 @@
 				}
 			],
 			"type" : "STATIC",
-			"value" : "C:/Users/hanksvi/CLionProjects/Progra_3/repoPROGRA/cmake-build-debug/CMakeFiles/pkgRedirects"
+			"value" : "D:/ANEL/UNIVERSIDAD/3er CICLO/PROGRAMACION 3/final_proyectoprogra/repoPROGRA/cmake-build-debug/CMakeFiles/pkgRedirects"
 		},
 		{
 			"name" : "CMAKE_GENERATOR",
@@ -715,7 +715,7 @@
 				}
 			],
 			"type" : "INTERNAL",
-			"value" : "C:/Users/hanksvi/CLionProjects/Progra_3/repoPROGRA"
+			"value" : "D:/ANEL/UNIVERSIDAD/3er CICLO/PROGRAMACION 3/final_proyectoprogra/repoPROGRA"
 		},
 		{
 			"name" : "CMAKE_INSTALL_PREFIX",
@@ -1363,7 +1363,7 @@
 				}
 			],
 			"type" : "STATIC",
-			"value" : "C:/Users/hanksvi/CLionProjects/Progra_3/repoPROGRA/cmake-build-debug"
+			"value" : "D:/ANEL/UNIVERSIDAD/3er CICLO/PROGRAMACION 3/final_proyectoprogra/repoPROGRA/cmake-build-debug"
 		},
 		{
 			"name" : "proyecto2_IS_TOP_LEVEL",
@@ -1387,7 +1387,7 @@
 				}
 			],
 			"type" : "STATIC",
-			"value" : "C:/Users/hanksvi/CLionProjects/Progra_3/repoPROGRA"
+			"value" : "D:/ANEL/UNIVERSIDAD/3er CICLO/PROGRAMACION 3/final_proyectoprogra/repoPROGRA"
 		}
 	],
 	"kind" : "cache",

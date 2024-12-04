@@ -8,18 +8,18 @@
 		<Option virtualFolders="CMake Files\;"/>
 		<Build>
 			<Target title="all">
-				<Option working_dir="C:/Users/hanksvi/CLionProjects/Progra_3/repoPROGRA/cmake-build-debug"/>
+				<Option working_dir="D:/ANEL/UNIVERSIDAD/3er CICLO/PROGRAMACION 3/final_proyectoprogra/repoPROGRA/cmake-build-debug"/>
 				<Option type="4"/>
 				<MakeCommands>
-					<Build command="C:/PROGRA~1/JETBRA~1/CLION2~1.4/bin/mingw/bin/mingw32-make.exe -f &quot;C:/Users/hanksvi/CLionProjects/Progra_3/repoPROGRA/cmake-build-debug/Makefile&quot;  VERBOSE=1 all"/>
-					<CompileFile command="C:/PROGRA~1/JETBRA~1/CLION2~1.4/bin/mingw/bin/mingw32-make.exe -f &quot;C:/Users/hanksvi/CLionProjects/Progra_3/repoPROGRA/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
-					<Clean command="C:/PROGRA~1/JETBRA~1/CLION2~1.4/bin/mingw/bin/mingw32-make.exe -f &quot;C:/Users/hanksvi/CLionProjects/Progra_3/repoPROGRA/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
-					<DistClean command="C:/PROGRA~1/JETBRA~1/CLION2~1.4/bin/mingw/bin/mingw32-make.exe -f &quot;C:/Users/hanksvi/CLionProjects/Progra_3/repoPROGRA/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<Build command="C:/PROGRA~1/JETBRA~1/CLION2~1.4/bin/mingw/bin/mingw32-make.exe -f &quot;D:/ANEL/UNIVERSIDAD/3er CICLO/PROGRAMACION 3/final_proyectoprogra/repoPROGRA/cmake-build-debug/Makefile&quot;  VERBOSE=1 all"/>
+					<CompileFile command="C:/PROGRA~1/JETBRA~1/CLION2~1.4/bin/mingw/bin/mingw32-make.exe -f &quot;D:/ANEL/UNIVERSIDAD/3er CICLO/PROGRAMACION 3/final_proyectoprogra/repoPROGRA/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="C:/PROGRA~1/JETBRA~1/CLION2~1.4/bin/mingw/bin/mingw32-make.exe -f &quot;D:/ANEL/UNIVERSIDAD/3er CICLO/PROGRAMACION 3/final_proyectoprogra/repoPROGRA/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="C:/PROGRA~1/JETBRA~1/CLION2~1.4/bin/mingw/bin/mingw32-make.exe -f &quot;D:/ANEL/UNIVERSIDAD/3er CICLO/PROGRAMACION 3/final_proyectoprogra/repoPROGRA/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
 				</MakeCommands>
 			</Target>
 			<Target title="proyecto2">
-				<Option output="C:/Users/hanksvi/CLionProjects/Progra_3/repoPROGRA/cmake-build-debug/proyecto2.exe" prefix_auto="0" extension_auto="0"/>
-				<Option working_dir="C:/Users/hanksvi/CLionProjects/Progra_3/repoPROGRA/cmake-build-debug"/>
+				<Option output="D:/ANEL/UNIVERSIDAD/3er CICLO/PROGRAMACION 3/final_proyectoprogra/repoPROGRA/cmake-build-debug/proyecto2.exe" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="D:/ANEL/UNIVERSIDAD/3er CICLO/PROGRAMACION 3/final_proyectoprogra/repoPROGRA/cmake-build-debug"/>
 				<Option object_output="./"/>
 				<Option type="1"/>
 				<Option compiler="gcc"/>
@@ -33,15 +33,15 @@
 					<Add directory="C:/Program Files/JetBrains/CLion 2023.3.4/bin/mingw/bin/../lib/gcc/x86_64-w64-mingw32/13.1.0/../../../../x86_64-w64-mingw32/include"/>
 				</Compiler>
 				<MakeCommands>
-					<Build command="C:/PROGRA~1/JETBRA~1/CLION2~1.4/bin/mingw/bin/mingw32-make.exe -f &quot;C:/Users/hanksvi/CLionProjects/Progra_3/repoPROGRA/cmake-build-debug/Makefile&quot;  VERBOSE=1 proyecto2"/>
-					<CompileFile command="C:/PROGRA~1/JETBRA~1/CLION2~1.4/bin/mingw/bin/mingw32-make.exe -f &quot;C:/Users/hanksvi/CLionProjects/Progra_3/repoPROGRA/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
-					<Clean command="C:/PROGRA~1/JETBRA~1/CLION2~1.4/bin/mingw/bin/mingw32-make.exe -f &quot;C:/Users/hanksvi/CLionProjects/Progra_3/repoPROGRA/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
-					<DistClean command="C:/PROGRA~1/JETBRA~1/CLION2~1.4/bin/mingw/bin/mingw32-make.exe -f &quot;C:/Users/hanksvi/CLionProjects/Progra_3/repoPROGRA/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<Build command="C:/PROGRA~1/JETBRA~1/CLION2~1.4/bin/mingw/bin/mingw32-make.exe -f &quot;D:/ANEL/UNIVERSIDAD/3er CICLO/PROGRAMACION 3/final_proyectoprogra/repoPROGRA/cmake-build-debug/Makefile&quot;  VERBOSE=1 proyecto2"/>
+					<CompileFile command="C:/PROGRA~1/JETBRA~1/CLION2~1.4/bin/mingw/bin/mingw32-make.exe -f &quot;D:/ANEL/UNIVERSIDAD/3er CICLO/PROGRAMACION 3/final_proyectoprogra/repoPROGRA/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="C:/PROGRA~1/JETBRA~1/CLION2~1.4/bin/mingw/bin/mingw32-make.exe -f &quot;D:/ANEL/UNIVERSIDAD/3er CICLO/PROGRAMACION 3/final_proyectoprogra/repoPROGRA/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="C:/PROGRA~1/JETBRA~1/CLION2~1.4/bin/mingw/bin/mingw32-make.exe -f &quot;D:/ANEL/UNIVERSIDAD/3er CICLO/PROGRAMACION 3/final_proyectoprogra/repoPROGRA/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
 				</MakeCommands>
 			</Target>
 			<Target title="proyecto2/fast">
-				<Option output="C:/Users/hanksvi/CLionProjects/Progra_3/repoPROGRA/cmake-build-debug/proyecto2.exe" prefix_auto="0" extension_auto="0"/>
-				<Option working_dir="C:/Users/hanksvi/CLionProjects/Progra_3/repoPROGRA/cmake-build-debug"/>
+				<Option output="D:/ANEL/UNIVERSIDAD/3er CICLO/PROGRAMACION 3/final_proyectoprogra/repoPROGRA/cmake-build-debug/proyecto2.exe" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="D:/ANEL/UNIVERSIDAD/3er CICLO/PROGRAMACION 3/final_proyectoprogra/repoPROGRA/cmake-build-debug"/>
 				<Option object_output="./"/>
 				<Option type="1"/>
 				<Option compiler="gcc"/>
@@ -55,52 +55,58 @@
 					<Add directory="C:/Program Files/JetBrains/CLion 2023.3.4/bin/mingw/bin/../lib/gcc/x86_64-w64-mingw32/13.1.0/../../../../x86_64-w64-mingw32/include"/>
 				</Compiler>
 				<MakeCommands>
-					<Build command="C:/PROGRA~1/JETBRA~1/CLION2~1.4/bin/mingw/bin/mingw32-make.exe -f &quot;C:/Users/hanksvi/CLionProjects/Progra_3/repoPROGRA/cmake-build-debug/Makefile&quot;  VERBOSE=1 proyecto2/fast"/>
-					<CompileFile command="C:/PROGRA~1/JETBRA~1/CLION2~1.4/bin/mingw/bin/mingw32-make.exe -f &quot;C:/Users/hanksvi/CLionProjects/Progra_3/repoPROGRA/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
-					<Clean command="C:/PROGRA~1/JETBRA~1/CLION2~1.4/bin/mingw/bin/mingw32-make.exe -f &quot;C:/Users/hanksvi/CLionProjects/Progra_3/repoPROGRA/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
-					<DistClean command="C:/PROGRA~1/JETBRA~1/CLION2~1.4/bin/mingw/bin/mingw32-make.exe -f &quot;C:/Users/hanksvi/CLionProjects/Progra_3/repoPROGRA/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<Build command="C:/PROGRA~1/JETBRA~1/CLION2~1.4/bin/mingw/bin/mingw32-make.exe -f &quot;D:/ANEL/UNIVERSIDAD/3er CICLO/PROGRAMACION 3/final_proyectoprogra/repoPROGRA/cmake-build-debug/Makefile&quot;  VERBOSE=1 proyecto2/fast"/>
+					<CompileFile command="C:/PROGRA~1/JETBRA~1/CLION2~1.4/bin/mingw/bin/mingw32-make.exe -f &quot;D:/ANEL/UNIVERSIDAD/3er CICLO/PROGRAMACION 3/final_proyectoprogra/repoPROGRA/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="C:/PROGRA~1/JETBRA~1/CLION2~1.4/bin/mingw/bin/mingw32-make.exe -f &quot;D:/ANEL/UNIVERSIDAD/3er CICLO/PROGRAMACION 3/final_proyectoprogra/repoPROGRA/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="C:/PROGRA~1/JETBRA~1/CLION2~1.4/bin/mingw/bin/mingw32-make.exe -f &quot;D:/ANEL/UNIVERSIDAD/3er CICLO/PROGRAMACION 3/final_proyectoprogra/repoPROGRA/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
 				</MakeCommands>
 			</Target>
 			<Target title="edit_cache">
-				<Option working_dir="C:/Users/hanksvi/CLionProjects/Progra_3/repoPROGRA/cmake-build-debug"/>
+				<Option working_dir="D:/ANEL/UNIVERSIDAD/3er CICLO/PROGRAMACION 3/final_proyectoprogra/repoPROGRA/cmake-build-debug"/>
 				<Option type="4"/>
 				<MakeCommands>
-					<Build command="C:/PROGRA~1/JETBRA~1/CLION2~1.4/bin/mingw/bin/mingw32-make.exe -f &quot;C:/Users/hanksvi/CLionProjects/Progra_3/repoPROGRA/cmake-build-debug/Makefile&quot;  VERBOSE=1 edit_cache"/>
-					<CompileFile command="C:/PROGRA~1/JETBRA~1/CLION2~1.4/bin/mingw/bin/mingw32-make.exe -f &quot;C:/Users/hanksvi/CLionProjects/Progra_3/repoPROGRA/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
-					<Clean command="C:/PROGRA~1/JETBRA~1/CLION2~1.4/bin/mingw/bin/mingw32-make.exe -f &quot;C:/Users/hanksvi/CLionProjects/Progra_3/repoPROGRA/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
-					<DistClean command="C:/PROGRA~1/JETBRA~1/CLION2~1.4/bin/mingw/bin/mingw32-make.exe -f &quot;C:/Users/hanksvi/CLionProjects/Progra_3/repoPROGRA/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<Build command="C:/PROGRA~1/JETBRA~1/CLION2~1.4/bin/mingw/bin/mingw32-make.exe -f &quot;D:/ANEL/UNIVERSIDAD/3er CICLO/PROGRAMACION 3/final_proyectoprogra/repoPROGRA/cmake-build-debug/Makefile&quot;  VERBOSE=1 edit_cache"/>
+					<CompileFile command="C:/PROGRA~1/JETBRA~1/CLION2~1.4/bin/mingw/bin/mingw32-make.exe -f &quot;D:/ANEL/UNIVERSIDAD/3er CICLO/PROGRAMACION 3/final_proyectoprogra/repoPROGRA/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="C:/PROGRA~1/JETBRA~1/CLION2~1.4/bin/mingw/bin/mingw32-make.exe -f &quot;D:/ANEL/UNIVERSIDAD/3er CICLO/PROGRAMACION 3/final_proyectoprogra/repoPROGRA/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="C:/PROGRA~1/JETBRA~1/CLION2~1.4/bin/mingw/bin/mingw32-make.exe -f &quot;D:/ANEL/UNIVERSIDAD/3er CICLO/PROGRAMACION 3/final_proyectoprogra/repoPROGRA/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
 				</MakeCommands>
 			</Target>
 			<Target title="rebuild_cache">
-				<Option working_dir="C:/Users/hanksvi/CLionProjects/Progra_3/repoPROGRA/cmake-build-debug"/>
+				<Option working_dir="D:/ANEL/UNIVERSIDAD/3er CICLO/PROGRAMACION 3/final_proyectoprogra/repoPROGRA/cmake-build-debug"/>
 				<Option type="4"/>
 				<MakeCommands>
-					<Build command="C:/PROGRA~1/JETBRA~1/CLION2~1.4/bin/mingw/bin/mingw32-make.exe -f &quot;C:/Users/hanksvi/CLionProjects/Progra_3/repoPROGRA/cmake-build-debug/Makefile&quot;  VERBOSE=1 rebuild_cache"/>
-					<CompileFile command="C:/PROGRA~1/JETBRA~1/CLION2~1.4/bin/mingw/bin/mingw32-make.exe -f &quot;C:/Users/hanksvi/CLionProjects/Progra_3/repoPROGRA/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
-					<Clean command="C:/PROGRA~1/JETBRA~1/CLION2~1.4/bin/mingw/bin/mingw32-make.exe -f &quot;C:/Users/hanksvi/CLionProjects/Progra_3/repoPROGRA/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
-					<DistClean command="C:/PROGRA~1/JETBRA~1/CLION2~1.4/bin/mingw/bin/mingw32-make.exe -f &quot;C:/Users/hanksvi/CLionProjects/Progra_3/repoPROGRA/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<Build command="C:/PROGRA~1/JETBRA~1/CLION2~1.4/bin/mingw/bin/mingw32-make.exe -f &quot;D:/ANEL/UNIVERSIDAD/3er CICLO/PROGRAMACION 3/final_proyectoprogra/repoPROGRA/cmake-build-debug/Makefile&quot;  VERBOSE=1 rebuild_cache"/>
+					<CompileFile command="C:/PROGRA~1/JETBRA~1/CLION2~1.4/bin/mingw/bin/mingw32-make.exe -f &quot;D:/ANEL/UNIVERSIDAD/3er CICLO/PROGRAMACION 3/final_proyectoprogra/repoPROGRA/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="C:/PROGRA~1/JETBRA~1/CLION2~1.4/bin/mingw/bin/mingw32-make.exe -f &quot;D:/ANEL/UNIVERSIDAD/3er CICLO/PROGRAMACION 3/final_proyectoprogra/repoPROGRA/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="C:/PROGRA~1/JETBRA~1/CLION2~1.4/bin/mingw/bin/mingw32-make.exe -f &quot;D:/ANEL/UNIVERSIDAD/3er CICLO/PROGRAMACION 3/final_proyectoprogra/repoPROGRA/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
 				</MakeCommands>
 			</Target>
 		</Build>
-		<Unit filename="C:/Users/hanksvi/CLionProjects/Progra_3/repoPROGRA/Pelicula.h">
+		<Unit filename="D:/ANEL/UNIVERSIDAD/3er CICLO/PROGRAMACION 3/final_proyectoprogra/repoPROGRA/Historial.cpp">
 			<Option target="proyecto2"/>
 		</Unit>
-		<Unit filename="C:/Users/hanksvi/CLionProjects/Progra_3/repoPROGRA/main.cpp">
+		<Unit filename="D:/ANEL/UNIVERSIDAD/3er CICLO/PROGRAMACION 3/final_proyectoprogra/repoPROGRA/Historial.h">
 			<Option target="proyecto2"/>
 		</Unit>
-		<Unit filename="C:/Users/hanksvi/CLionProjects/Progra_3/repoPROGRA/menu.cpp">
+		<Unit filename="D:/ANEL/UNIVERSIDAD/3er CICLO/PROGRAMACION 3/final_proyectoprogra/repoPROGRA/Pelicula.h">
 			<Option target="proyecto2"/>
 		</Unit>
-		<Unit filename="C:/Users/hanksvi/CLionProjects/Progra_3/repoPROGRA/menu.h">
+		<Unit filename="D:/ANEL/UNIVERSIDAD/3er CICLO/PROGRAMACION 3/final_proyectoprogra/repoPROGRA/main.cpp">
 			<Option target="proyecto2"/>
 		</Unit>
-		<Unit filename="C:/Users/hanksvi/CLionProjects/Progra_3/repoPROGRA/trie.cpp">
+		<Unit filename="D:/ANEL/UNIVERSIDAD/3er CICLO/PROGRAMACION 3/final_proyectoprogra/repoPROGRA/menu.cpp">
 			<Option target="proyecto2"/>
 		</Unit>
-		<Unit filename="C:/Users/hanksvi/CLionProjects/Progra_3/repoPROGRA/trie.h">
+		<Unit filename="D:/ANEL/UNIVERSIDAD/3er CICLO/PROGRAMACION 3/final_proyectoprogra/repoPROGRA/menu.h">
 			<Option target="proyecto2"/>
 		</Unit>
-		<Unit filename="C:/Users/hanksvi/CLionProjects/Progra_3/repoPROGRA/CMakeLists.txt">
+		<Unit filename="D:/ANEL/UNIVERSIDAD/3er CICLO/PROGRAMACION 3/final_proyectoprogra/repoPROGRA/trie.cpp">
+			<Option target="proyecto2"/>
+		</Unit>
+		<Unit filename="D:/ANEL/UNIVERSIDAD/3er CICLO/PROGRAMACION 3/final_proyectoprogra/repoPROGRA/trie.h">
+			<Option target="proyecto2"/>
+		</Unit>
+		<Unit filename="D:/ANEL/UNIVERSIDAD/3er CICLO/PROGRAMACION 3/final_proyectoprogra/repoPROGRA/CMakeLists.txt">
 			<Option virtualFolder="CMake Files\"/>
 		</Unit>
 	</Project>

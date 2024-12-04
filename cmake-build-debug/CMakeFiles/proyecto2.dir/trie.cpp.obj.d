@@ -1,6 +1,6 @@
 CMakeFiles/proyecto2.dir/trie.cpp.obj: \
- C:\Users\hanksvi\CLionProjects\Progra_3\repoPROGRA\trie.cpp \
- C:\Users\hanksvi\CLionProjects\Progra_3\repoPROGRA\Trie.h \
+ D:\ANEL\UNIVERSIDAD\3er\ CICLO\PROGRAMACION\ 3\final_proyectoprogra\repoPROGRA\trie.cpp \
+ D:\ANEL\UNIVERSIDAD\3er\ CICLO\PROGRAMACION\ 3\final_proyectoprogra\repoPROGRA\Trie.h \
  C:/Program\ Files/JetBrains/CLion\ 2023.3.4/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/unordered_map \
  C:/Program\ Files/JetBrains/CLion\ 2023.3.4/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/bits/requires_hosted.h \
  C:/Program\ Files/JetBrains/CLion\ 2023.3.4/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/x86_64-w64-mingw32/bits/c++config.h \

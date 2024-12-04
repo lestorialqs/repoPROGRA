@@ -49,8 +49,13 @@
 	"kind" : "codemodel",
 	"paths" : 
 	{
+<<<<<<<< HEAD:cmake-build-debug/.cmake/api/v1/reply/codemodel-v2-a57f9626aa6a902feef8.json
 		"build" : "C:/Users/Asus/Documents/Programacion_Proyects/repoPROGRA/cmake-build-debug",
 		"source" : "C:/Users/Asus/Documents/Programacion_Proyects/repoPROGRA"
+========
+		"build" : "C:/prograa/repoPROGRA/cmake-build-debug",
+		"source" : "C:/prograa/repoPROGRA"
+>>>>>>>> f6d3a2c453f0f014486c1555366da9474e08e3f1:cmake-build-debug/.cmake/api/v1/reply/codemodel-v2-7ad670a875726d185372.json
 	},
 	"version" : 
 	{

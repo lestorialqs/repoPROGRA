@@ -1,4 +1,8 @@
+<<<<<<<< HEAD:cmake-build-debug/CMakeFiles/3.29.6/CMakeCXXCompiler.cmake
 set(CMAKE_CXX_COMPILER "C:/Program Files/JetBrains/CLion 2024.2.0.1/bin/mingw/bin/g++.exe")
+========
+set(CMAKE_CXX_COMPILER "C:/Program Files/JetBrains/CLion 2024.1/bin/mingw/bin/g++.exe")
+>>>>>>>> f6d3a2c453f0f014486c1555366da9474e08e3f1:cmake-build-debug/CMakeFiles/3.28.1/CMakeCXXCompiler.cmake
 set(CMAKE_CXX_COMPILER_ARG1 "")
 set(CMAKE_CXX_COMPILER_ID "GNU")
 set(CMAKE_CXX_COMPILER_VERSION "13.1.0")
@@ -22,6 +26,7 @@ set(CMAKE_CXX_SIMULATE_VERSION "")
 
 
 
+<<<<<<<< HEAD:cmake-build-debug/CMakeFiles/3.29.6/CMakeCXXCompiler.cmake
 set(CMAKE_AR "C:/Program Files/JetBrains/CLion 2024.2.0.1/bin/mingw/bin/ar.exe")
 set(CMAKE_CXX_COMPILER_AR "C:/Program Files/JetBrains/CLion 2024.2.0.1/bin/mingw/bin/gcc-ar.exe")
 set(CMAKE_RANLIB "C:/Program Files/JetBrains/CLion 2024.2.0.1/bin/mingw/bin/ranlib.exe")
@@ -33,6 +38,13 @@ set(CMAKE_CXX_COMPILER_LINKER "C:/Program Files/JetBrains/CLion 2024.2.0.1/bin/m
 set(CMAKE_CXX_COMPILER_LINKER_ID "GNU")
 set(CMAKE_CXX_COMPILER_LINKER_VERSION 2.40)
 set(CMAKE_CXX_COMPILER_LINKER_FRONTEND_VARIANT GNU)
+========
+set(CMAKE_AR "C:/Program Files/JetBrains/CLion 2024.1/bin/mingw/bin/ar.exe")
+set(CMAKE_CXX_COMPILER_AR "C:/Program Files/JetBrains/CLion 2024.1/bin/mingw/bin/gcc-ar.exe")
+set(CMAKE_RANLIB "C:/Program Files/JetBrains/CLion 2024.1/bin/mingw/bin/ranlib.exe")
+set(CMAKE_CXX_COMPILER_RANLIB "C:/Program Files/JetBrains/CLion 2024.1/bin/mingw/bin/gcc-ranlib.exe")
+set(CMAKE_LINKER "C:/Program Files/JetBrains/CLion 2024.1/bin/mingw/bin/ld.exe")
+>>>>>>>> f6d3a2c453f0f014486c1555366da9474e08e3f1:cmake-build-debug/CMakeFiles/3.28.1/CMakeCXXCompiler.cmake
 set(CMAKE_MT "")
 set(CMAKE_TAPI "CMAKE_TAPI-NOTFOUND")
 set(CMAKE_COMPILER_IS_GNUCXX 1)
@@ -85,7 +97,11 @@ endif()
 
 
 
+<<<<<<<< HEAD:cmake-build-debug/CMakeFiles/3.29.6/CMakeCXXCompiler.cmake
 set(CMAKE_CXX_IMPLICIT_INCLUDE_DIRECTORIES "C:/Program Files/JetBrains/CLion 2024.2.0.1/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++;C:/Program Files/JetBrains/CLion 2024.2.0.1/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/x86_64-w64-mingw32;C:/Program Files/JetBrains/CLion 2024.2.0.1/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/backward;C:/Program Files/JetBrains/CLion 2024.2.0.1/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include;C:/Program Files/JetBrains/CLion 2024.2.0.1/bin/mingw/include;C:/Program Files/JetBrains/CLion 2024.2.0.1/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include-fixed;C:/Program Files/JetBrains/CLion 2024.2.0.1/bin/mingw/x86_64-w64-mingw32/include")
+========
+set(CMAKE_CXX_IMPLICIT_INCLUDE_DIRECTORIES "C:/Program Files/JetBrains/CLion 2024.1/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++;C:/Program Files/JetBrains/CLion 2024.1/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/x86_64-w64-mingw32;C:/Program Files/JetBrains/CLion 2024.1/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/backward;C:/Program Files/JetBrains/CLion 2024.1/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include;C:/Program Files/JetBrains/CLion 2024.1/bin/mingw/include;C:/Program Files/JetBrains/CLion 2024.1/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include-fixed;C:/Program Files/JetBrains/CLion 2024.1/bin/mingw/x86_64-w64-mingw32/include")
+>>>>>>>> f6d3a2c453f0f014486c1555366da9474e08e3f1:cmake-build-debug/CMakeFiles/3.28.1/CMakeCXXCompiler.cmake
 set(CMAKE_CXX_IMPLICIT_LINK_LIBRARIES "")
 set(CMAKE_CXX_IMPLICIT_LINK_DIRECTORIES "")
 set(CMAKE_CXX_IMPLICIT_LINK_FRAMEWORK_DIRECTORIES "")

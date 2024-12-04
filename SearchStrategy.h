@@ -8,22 +8,23 @@
 
 
 class SearchStrategy {
+    friend class Menu;
 public:
-    virtual vector<string> search(const Trie& trie, const string& query) = 0;
+    virtual vector<pair<string, string>> search(Trie &trie, const string& query) = 0;
     virtual ~SearchStrategy() = default;
 };
 
 
 class ExactMatchStrategy : public SearchStrategy {
 public:
-    vector<pair<string, string>> search(const Trie& trie, const string& query) override {
+    vector<pair<string, string>> search(Trie &trie, const string& query) override {
         return trie.searchByTitle(query);
     }
 };
 
 class SynopsisSearchStrategy : public SearchStrategy {
 public:
-    vector<pair<string, string>> search(const Trie& trie, const string& query) override {
+    vector<pair<string, string>> search(Trie &trie, const string& query) override {
         return trie.searchByPhrase(query);
 
     }

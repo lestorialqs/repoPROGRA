@@ -8,5 +8,8 @@ add_executable(proyecto2 main.cpp
         trie.h
         Pelicula.h
         menu.cpp
+        SearchStrategy.cpp
         SearchStrategy.h
+
         )
+# para mejorar esta implemnetacion

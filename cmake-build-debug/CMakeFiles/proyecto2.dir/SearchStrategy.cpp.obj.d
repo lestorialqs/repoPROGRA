@@ -1,5 +1,6 @@
-CMakeFiles/proyecto2.dir/trie.cpp.obj: \
- C:\Users\Asus\Documents\Programacion_Proyects\repoPROGRA\trie.cpp \
+CMakeFiles/proyecto2.dir/SearchStrategy.cpp.obj: \
+ C:\Users\Asus\Documents\Programacion_Proyects\repoPROGRA\SearchStrategy.cpp \
+ C:\Users\Asus\Documents\Programacion_Proyects\repoPROGRA\SearchStrategy.h \
  C:\Users\Asus\Documents\Programacion_Proyects\repoPROGRA\Trie.h \
  C:/Program\ Files/JetBrains/CLion\ 2024.2.0.1/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/unordered_map \
  C:/Program\ Files/JetBrains/CLion\ 2024.2.0.1/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/bits/requires_hosted.h \
@@ -163,6 +164,4 @@ CMakeFiles/proyecto2.dir/trie.cpp.obj: \
  C:/Program\ Files/JetBrains/CLion\ 2024.2.0.1/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/bits/basic_ios.tcc \
  C:/Program\ Files/JetBrains/CLion\ 2024.2.0.1/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/bits/ostream.tcc \
  C:/Program\ Files/JetBrains/CLion\ 2024.2.0.1/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/istream \
- C:/Program\ Files/JetBrains/CLion\ 2024.2.0.1/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/bits/istream.tcc \
- C:/Program\ Files/JetBrains/CLion\ 2024.2.0.1/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/unordered_set \
- C:/Program\ Files/JetBrains/CLion\ 2024.2.0.1/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/bits/unordered_set.h
+ C:/Program\ Files/JetBrains/CLion\ 2024.2.0.1/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/bits/istream.tcc

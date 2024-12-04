@@ -1,7 +1,12 @@
-#include "Menu.h"
+
 #include <fstream>
 #include <sstream>
 #include <iostream>
+
+#include "Menu.h"
+
+#include "SearchStrategy.h"
+
 
 using namespace std;
 
@@ -46,8 +51,10 @@ void Menu::buscarPorFraseExacta() {
     string phrase;
     cout << "Ingrese una frase exacta para buscar películas por título: ";
     getline(cin, phrase);
+    ExactMatchStrategy *exactMatchStrategy= new ExactMatchStrategy;
 
-    vector <pair<string, string>> results = trie.searchByTitle(phrase);
+
+    vector <pair<string, string>> results = exactMatchStrategy->search(this->trie,phrase);
     if (!results.empty()) {
         cout << "Películas encontradas en las sinopsis:\n";
         for (const auto &[title, synopsis]: results) {
@@ -79,8 +86,9 @@ void Menu::buscarEnSinopsis() {
     string phrase;
     cout << "Ingrese una frase para buscar en las sinopsis: ";
     getline(cin, phrase);
+    SynopsisSearchStrategy *synopsis_search_strategy = new SynopsisSearchStrategy;
 
-    vector<pair<string, string>> results = trie.searchByPhrase(phrase);
+    vector<pair<string, string>> results = synopsis_search_strategy->search(this->trie,phrase);
     if (!results.empty()) {
         cout << "Películas encontradas en las sinopsis:\n";
         for (const auto& [title, synopsis] : results) {

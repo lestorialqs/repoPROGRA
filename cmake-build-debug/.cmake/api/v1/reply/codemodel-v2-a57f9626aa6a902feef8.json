@@ -39,7 +39,7 @@
 				{
 					"directoryIndex" : 0,
 					"id" : "proyecto2::@6890427a1f51a3e7e1df",
-					"jsonFile" : "target-proyecto2-Debug-cb8e68c0d7e86a82d108.json",
+					"jsonFile" : "target-proyecto2-Debug-86b09883bbd2eb6f98d2.json",
 					"name" : "proyecto2",
 					"projectIndex" : 0
 				}
@@ -49,12 +49,12 @@
 	"kind" : "codemodel",
 	"paths" : 
 	{
-		"build" : "C:/Users/hanksvi/CLionProjects/Progra_3/repoPROGRA/cmake-build-debug",
-		"source" : "C:/Users/hanksvi/CLionProjects/Progra_3/repoPROGRA"
+		"build" : "C:/Users/Asus/Documents/Programacion_Proyects/repoPROGRA/cmake-build-debug",
+		"source" : "C:/Users/Asus/Documents/Programacion_Proyects/repoPROGRA"
 	},
 	"version" : 
 	{
 		"major" : 2,
-		"minor" : 6
+		"minor" : 7
 	}
 }

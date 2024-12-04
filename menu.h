@@ -7,6 +7,7 @@
 #include "Pelicula.h"
 
 class Menu {
+  friend class Trie;
 private:
   Trie trie;
 

@@ -1,7 +1,7 @@
 Programación III: Proyecto Final (2024-2)
 Este proyecto fue realizado por los integrantes:
 
-Henry Rutber Quispe Sutta
+Henry Rutber Quispe Sutta\\
 Anel Mi Lucero Rojas Martinez
 Luis Anthony Romero Padilla
 Cada uno contribuyó en distintas áreas del proyecto, y las contribuciones fueron integradas en este repositorio final.
